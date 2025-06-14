@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Cybersecurity Camp 2025</title>  <!-- change -->
+  <link rel="stylesheet" href="../../css/blogpage.css" />
+  <link rel="stylesheet" href="../../css/satoshi.css" />
+  <link rel="stylesheet" href="../../css/clash-display.css" />
+  <link 
+  rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="nav-container">
+      <a href="#" class="logo">solaris0141</a>
+      <button class="hamburger" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24"
+             viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="icon icon-tabler-menu">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M4 8l16 0" />
+          <path d="M4 16l16 0" />
+        </svg>
+      </button>
+      <nav class="nav-links">
+        <a href="#">About</a>
+        <a href="../../blogmenu.html">Blogs</a>
+        <a href="#">CTF</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="blog-container">
+    <header class="post-header">
+      <div class="post-type">Blog</div> 
+      <h1 class="post-title">Global Cybersecurity Camp 2025</h1>
+      <div class="post-date">
+        <span class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler-calendar-week"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
+            <path d="M16 3v4" />
+            <path d="M8 3v4" />
+            <path d="M4 11h16" />
+            <path d="M7 14h.013" />
+            <path d="M10.01 14h.005" />
+            <path d="M13.01 14h.005" />
+            <path d="M16.015 14h.005" />
+            <path d="M13.015 17h.005" />
+            <path d="M7.01 17h.005" />
+            <path d="M10.01 17h.005" />
+          </svg>
+        </span>
+        <small>21 February 2025</small>
+      </div>
+    </header>
+    <div class="post-image">
+      <img src="GroupPhoto.jpg" alt="GroupPhoto" />
+    </div>
+
+    <article class="post-body">
+      <p>
+        Earlier this year I had the privilege of attending the Global Cybersecurity Camp (GCC) 2025
+        in Taiwan—a week-long gathering of the top students from around the world, all passionate
+        about building a safer digital future. Hosted in a different country each year, GCC brings
+        together next-generation cybersecurity leaders to learn from industry experts, work on
+        real-world problems, and forge lifelong connections.
+      </p>
+
+      <h2>Day 0 — Arrival & Ice-Breaking</h2>
+      <p>
+        After a quick check-in at the hotel, everyone gathered for an evening
+        ice-breaking party in the hotel cafe. I was placed on a team with representatives from four other countries,
+        and over games and snacks we swapped stories of local CTF scenes, our favorite tools, and
+        expectations for the week ahead.
+      </p>
+
+      <figure class="figure">
+        <img
+          src="Day0-Night.jpg"
+          alt="Ice Breaking Party"
+          class="figure-image"
+        />
+        <figcaption class="figure-caption">
+          Ice Breaking Party
+        </figcaption>
+      </figure>
+      
+      <figure class="figure">
+        <img
+          src="Day0-Introduction.jpg"
+          alt="Introductions"
+          class="figure-image"
+        />
+        <figcaption class="figure-caption">
+          My Introduction during the Ice Breaking Party
+        </figcaption>
+      </figure>
+
+      <h2>Day 1 — Opening Workshops & Group Assignment</h2>
+      <p>
+        We kicked off the morning with a welcome breakfast followed by opening remarks from
+        the GCC organizers. The first technical session was an introduction to threat modelling,
+        led by Donovan Cheah (SG), where we mapped out attack trees for common web app flaws using Threat Dragon.
+      </p>
+      <p>
+        In the afternoon we each drew a “group project” out of a hat—my team’s topic was
+        <strong>Quantum Security</strong>. We spent the rest of the day planning our BB84
+        simulation and dividing up roles.
+      </p>
+
+      <figure class="figure">
+        <img
+          src="Day1-GroupWork.jpg"
+          alt="Group Work"
+          class="figure-image"
+        />
+        <figcaption class="figure-caption">
+          Introduction to the Titles for Group Work
+        </figcaption>
+      </figure>
+
+      <h2>Day 2 — Reverse Engineering Malware</h2>
+      <p>
+        Hiroshi Suzuki & Naoki Takayama led an intensive lab on reversing C++
+        malware with IDA and semi-automated scripting. We got to learn to use a much
+        unconventional way in reversing class objects and methods. 
+      </p>
+
+      <h2>Day 3 — OT Security & Threat Intelligence</h2>
+      <p>
+        The morning session by Vic Huang & Sol Yang dove deep into operational
+        technology (OT) attacks—think SCADA, industrial controllers, and the unique
+        challenges of embedded firmware. After lunch, Tomohisa Ishikawa introduced
+        a workflow for integrated threat intelligence: ingesting OSINT feeds,
+        correlating IoCs, and feeding custom rules into a live SIEM.
+      </p>
+
+      <h2>Day 4 — Kernel Exploitation & Automotive Hacking</h2>
+      <p>
+        In the morning, Cherie-Anne Lee opened with a crash course on modern Linux kernel exploits
+        such as dirty pipes by demonstrating the CTF challenges she has created in the past. Then 
+        Kamel Ghali showed us how to break into CAN-bus networks in cars and especially to understand
+        which part of the CAN dump should we focus on for certain information about the car. 
+      </p>
+
+      <h2>Day 5 — Groupwork Showcase & City Tour</h2>
+      <p>
+        Presentation day! My team demonstrated our <em>BB84 quantum key distribution</em>
+        simulation made using WebSockets as our “quantum channel” and a manual
+        man-in-the-middle script to show why any interception breaks the protocol.
+        The judges loved the live demo. Afterwards, the camp took us on a group
+        tour up Taipei 101 for the rest of the afternoon.
+      </p>
+
+      <figure class="figure">
+        <img
+          src="Day5-Presentation.jpg"
+          alt="Group Work Presentation"
+          class="figure-image"
+        />
+        <figcaption class="figure-caption">
+          Presentation for our Group Work
+        </figcaption>
+      </figure>
+
+      <figure class="figure">
+        <img
+          src="Day5-Tour101.jpg"
+          alt="Taipei 101"
+          class="figure-image"
+        />
+        <figcaption class="figure-caption">
+          City Tour to Taipei 101
+        </figcaption>
+      </figure>
+
+      <h2>Day 6 — Farewell Day</h2>
+      <p>
+        With our flight booked for late evening, we wandered around Taipei’s cityscape 
+        and went to various museums and spots that were on our todo list. It was the 
+        perfect coda to a week of intense learning and incredible new friendships. Here
+        are some really random photos I took of the cityscape. 
+      </p>
+      <figure class="figure">
+        <img
+          src="Day6-Street.jpg"
+          alt="Taipei Street"
+          class="figure-image"
+        />
+        <figcaption class="figure-caption">
+          Streets of Taipei
+        </figcaption>
+      </figure>
+
+      <figure class="figure">
+        <img
+          src="Day6-Bank.jpg"
+          alt="Land Bank"
+          class="figure-image"
+        />
+        <figcaption class="figure-caption">
+          Cool Bank
+        </figcaption>
+      </figure>
+
+      <h3>Afterwords</h3>
+      <p>
+        GCC 2025 Taiwan was more than a conference, it was a place for curating ideas,
+        a playground for curious minds, and a global community I’m proud to be part of. It
+        built my confidence in topics that I would never have thought to break into it myself.
+        Big thank you to <strong>SherpaSec</strong> and <strong>Cyberwise</strong> for their sponsor 
+        and support, especially putting the trust into us for representing Malaysia in such a grandiose 
+        event. Looking forward to seeing how Vietnam will host for GCC 2026!
+      </p>
+    </article>
+  </main>
+  <script src="../../js/blogpage.js" defer></script>
+</body>
+</html>
+

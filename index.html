@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>solaris0141 | Blog</title>
+  <link rel="stylesheet" href="css/blogmenustyle.css" />
+  <link rel="stylesheet" href="css/satoshi.css" />
+  <link rel="stylesheet" href="css/clash-display.css" />
+</head>
+<body>
+
+  <div class="sky">
+    <div class="star"></div>
+    <div class="meteor-1 meteor"></div>
+    <div class="meteor-2 meteor"></div>
+    <div class="meteor-3 meteor"></div>
+    <div class="meteor-4 meteor"></div>
+    <div class="meteor-5 meteor"></div>
+    <div class="meteor-6 meteor"></div>
+    <div class="meteor-7 meteor"></div>
+    <div class="meteor-8 meteor"></div>
+    <div class="meteor-9 meteor"></div>
+    <div class="meteor-10 meteor"></div>
+    <div class="meteor-11 meteor"></div>
+    <div class="meteor-12 meteor"></div>
+    <div class="meteor-13 meteor"></div>
+    <div class="meteor-14 meteor"></div>
+    <div class="meteor-15 meteor"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="nav-container">
+      <a href="#" class="logo">solaris0141</a>
+      <button class="hamburger" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24"
+             viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="icon icon-tabler-menu">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M4 8l16 0" />
+          <path d="M4 16l16 0" />
+        </svg>
+      </button>
+      <nav class="nav-links">
+        <a href="#">About</a>
+        <a href="../../blogmenu.html">Blogs</a>
+        <a href="#">CTF</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="blog-container">
+    <section class="hero">
+      <h1 class="hero-title">Blogs & Writeups of solaris0141</h1>
+    </section>
+    <section id="featured-post" class="featured-post"></section>
+    <section class="other-posts-header">
+      <h2>Other Posts</h2>
+    </section>
+    <section id="blog-list" class="blog-grid"></section>
+    <div id="pagination-controls" class="pagination-controls"></div>
+  </main>
+
+  <script src="js/blogData.js"></script>
+  <script src="js/blogmenuscript.js"></script>
+  <script>
+    document.querySelector('.hamburger').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
+
+
+

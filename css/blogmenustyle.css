@@ -1,0 +1,486 @@
+:root {
+  --bg: #1C1C27;
+  --card-bg: #2E3F50;
+  --primary: #EBCF9F;
+  --secondary: #BAC0DE;
+  --text: #f5f7ff;
+  --accent: #FFBA42;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  position: relative;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: 'Satoshi-Regular', sans-serif;
+}
+
+/* Sky Background */
+.sky {
+  position: fixed; 
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background-image: radial-gradient(ellipse at top, #080e21 0%, #1b2735 95%);
+  overflow: hidden; 
+  z-index: -1;
+}
+
+.star {
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  background: transparent;
+  box-shadow: 100px 200px #fff,;
+}
+
+.meteor {
+  position: absolute;
+  width: 300px;
+  height: 1px;
+  transform: rotate(-45deg);
+  background-image: linear-gradient(to right, #fff, rgba(255,255,255,0));
+  opacity: 0; /* Hide the stars before they can move */
+  animation: meteor 4s linear infinite;
+}
+
+.meteor::before {
+  content: ""; position: absolute; width: 4px; height: 5px;
+  border-radius: 50%; margin-top: -2px;
+  background: rgba(255,255,255,0.7);
+  box-shadow: 0 0 15px 3px #fff;
+}
+
+@keyframes meteor {
+  0%   { 
+    opacity:   0;            
+    margin-top:   -300px;
+    margin-right: -300px;
+  }
+  3%   {
+    opacity: 1;              
+  }
+  12%  {
+    opacity: 0;
+  }
+  15%  {
+    margin-top:   300px;
+    margin-left: -600px;
+    opacity:     0;
+  }
+  100% { 
+    opacity: 0; 
+  }
+}
+/* Meteor positions */
+.meteor-1 { top:20%; left:10%; animation:meteor 4s linear infinite; }
+.meteor-2 { top:30%; left:25%; animation:meteor 3.5s linear infinite 1s; }
+.meteor-3 { top:40%; left:40%; animation:meteor 5s linear infinite 2s; }
+.meteor-4 { top:50%; left:55%; animation:meteor 4.5s linear infinite 0.5s; }
+.meteor-5 { top:60%; left:70%; animation:meteor 3.2s linear infinite 1.2s; }
+.meteor-6 { top:15%; left:80%; animation:meteor 4.8s linear infinite 0.8s; }
+.meteor-7 { top:25%; left:60%; animation:meteor 3.9s linear infinite 2.1s; }
+.meteor-8 { top:35%; left:30%; animation:meteor 4.3s linear infinite 1.5s; }
+.meteor-9 { top:45%; left:45%; animation:meteor 3.7s linear infinite 0.3s; }
+.meteor-10 { top:55%; left:20%; animation:meteor 5.2s linear infinite 2.5s; }
+.meteor-11 { top:65%; left:35%; animation:meteor 4.1s linear infinite 1.8s; }
+.meteor-12 { top:75%; left:50%; animation:meteor 3.4s linear infinite 0.6s; }
+.meteor-13 { top:85%; left:65%; animation:meteor 4.6s linear infinite 2.3s; }
+.meteor-14 { top:10%; left:15%; animation:meteor 3.8s linear infinite 1.1s; }
+.meteor-15 { top:90%; left:85%; animation:meteor 5.0s linear infinite 0.9s; }
+
+/* Top Bar */
+.topbar { 
+  background: var(--bg); 
+  border-bottom: 1px solid var(--card-bg); 
+  position: sticky; 
+  top: 0; 
+  z-index: 100; 
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-family: "Satoshi-Bold";
+  transition: color 0.2s;
+}
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Main Container */
+.blog-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.hero {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  text-align: center;
+}
+.hero-title {
+  font-size: clamp(2.5rem, 10vw, 6rem);
+  font-family: "Satoshi-Variable";
+  font-weight: 750;
+  color: var(--text);
+  max-width: 1100px;
+}
+
+/* Featured Post */
+.featured-post {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: none;
+  border-radius: 1rem;
+  margin-bottom: 2.5rem;
+  gap: 2rem;
+}
+.featured-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.0rem;
+  flex: 1 1 55%;
+}
+.featured-tag {
+  font-size: 0.85rem;
+  font-family: "Satoshi-Bold";
+  letter-spacing: 1px;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+.featured-text h2 {
+  font-size: 1.9rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  font-family: "Satoshi-Regular";
+}
+.featured-date-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--secondary);
+  font-size: 0.9rem;
+  font-family: "Satoshi-Bold";
+}
+.featured-date-row .icon { width: 1rem; height: 1rem; }
+
+.featured-title a {
+  pointer-events: none;        /* no clicks */
+  color: inherit;              /* look like normal text */
+  text-decoration: none;       /* no underline on hover */
+  cursor: default;
+}
+
+
+.featured-button {
+  background: var(--primary);
+  color: var(--bg);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  font-family: "Satoshi-Regular";
+  text-decoration: none;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+}
+.featured-button:hover { opacity: 0.8; }
+.featured-image {
+  flex: 1 1 40%;
+  max-width: 400px;
+}
+
+.other-posts-header {
+  margin: 10rem 0 3rem;           
+  text-align: left;
+}
+
+.other-posts-header h2 {
+  font-size: 1.6rem;              
+  font-family: "Satoshi-Regular";      
+}
+
+/* Blog Grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+.blog-card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.blog-card img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  object-fit: cover;
+  display: block;
+}
+.blog-card .date-row .info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;  
+}
+.blog-card .date-row .post-type {
+  margin-left: auto;
+}
+.image-crop-3-2 {
+  width: 100%;
+  position: relative;
+  padding-top: calc(2 / 3 * 100%); /* 3:2 ratio = 66.66% padding */
+  overflow: hidden;
+}
+.image-crop-3-2 img {
+  position: absolute;
+  top:   0;
+  left:  0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.blog-card-inner {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.date-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  font-family: "Satoshi-Regular";
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+.date-row .info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.date-row .icon {
+  display: inline-flex;      
+  margin-right: 0.4rem;      
+}
+.date-row .icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+.date-row small {
+  margin: 0;
+}
+
+.post-title {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  font-family: "Satoshi-Regular";
+}
+.post-title a {
+  color: var(--text);
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+.post-title a:hover { text-decoration: underline; color: var(--accent); }
+
+/* Pagination */
+.pagination-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 2rem 0;
+}
+.pagination-controls button {
+  background: var(--card-bg);
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-family: "Satoshi-Regular";
+  color: var(--text);
+  transition: background 0.2s;
+}
+.pagination-controls button.active {
+  background: var(--primary);
+  color: var(--bg);
+}
+.pagination-controls button:hover:not(.active) { background: var(--accent); color: var(--bg); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .featured-post { flex-direction: column; text-align: center; }
+  .featured-image { max-width: 100%; margin-top: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .featured-text h2 { font-size: 1.5rem; }
+}
+
+/* ===== MOBILE: up to 425px – tablet style + featured shown ===== */
+@media (max-width: 425px) {
+
+  .hamburger {
+    display: block;
+  }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0.5rem;                  
+    background: var(--bg);           
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    padding: 0.75rem 1rem;           
+    border-radius: 0.5rem;
+  }
+  .nav-links a {
+    margin: 0;                        /* remove the global margin-left */
+    padding: 0.5rem 0;                /* add some vertical breathing room */
+    display: block;                   /* make the entire row clickable */
+  }
+  .nav-links a + a {
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .nav-links.show {
+    display: flex;
+  }
+  #featured-post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+  }
+
+  .featured-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;   /* adjust vertical spacing */
+  }
+
+  /* 2) hide the Read button */
+  .featured-button {
+    display: none;
+  }
+
+  /* 3) reorder: tag → date → title → image */
+  .featured-tag {
+    order: 1;
+    align-self: center;
+  }
+  .featured-date-row {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    margin: 0;     /* resets any desktop margins */
+    gap: 0.5rem;
+  }
+  .featured-title {
+    order: 3;
+    text-align: center;
+  }
+  .featured-title a {
+    pointer-events: auto;       /* enable clicks on mobile */
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.25rem;         /* bump if you like */
+  }
+  .featured-title a:hover {
+    text-decoration: underline;
+    color: var(--accent);
+  }
+
+  .featured-image {
+    order: 4;
+    margin-top: 1rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== tablet layout only: 426px up to 768px ===== */
+@media (min-width: 426px) and (max-width: 768px) {
+
+  /* stack everything in one column */
+  .featured-post {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-text {
+    /* smaller vertical gap on tablet if you want */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* 1) bring the date row immediately under the tag */
+  .featured-tag {
+    order: 1;
+  }
+  .featured-date-row {
+    order: 2;
+    margin: 0;
+    gap: 0.5rem;
+
+    justify-content: center;
+  }
+
+  .featured-title {
+    order: 3;
+  }
+
+  .featured-image {
+    order: 4;
+    margin-top: 1rem;
+  }
+
+  .featured-button {
+    display: none;
+  }
+
+  .featured-title a {
+    pointer-events: auto;     
+    color: var(--text);      
+    text-decoration: none;    
+    cursor: pointer;
+  }
+  .featured-title a:hover {
+    text-decoration: underline;
+    color: var(--accent);
+  }
+}
