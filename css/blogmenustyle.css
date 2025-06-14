@@ -262,7 +262,7 @@ body {
   width: 100%;
   position: relative;
   padding-top: calc(2 / 3 * 100%); /* 3:2 ratio = 66.66% padding */
-  overflow: hidden;
+
 }
 .image-crop-3-2 img {
   position: absolute;
@@ -423,8 +423,9 @@ body {
   }
 
   .featured-image {
+    display: block;
+    width: 100%;
     order: 4;
-    margin-top: 1rem;
   }
 
   .blog-grid {
@@ -456,7 +457,6 @@ body {
     order: 2;
     margin: 0;
     gap: 0.5rem;
-
     justify-content: center;
   }
 
@@ -465,8 +465,9 @@ body {
   }
 
   .featured-image {
+    display: block;
+    width: 100%;
     order: 4;
-    margin-top: 1rem;
   }
 
   .featured-button {
