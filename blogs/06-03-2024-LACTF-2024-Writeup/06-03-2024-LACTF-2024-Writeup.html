@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LACTF 2024 Writeup</title>  <!-- change -->
+  <link rel="stylesheet" href="../../css/blogpage.css" />
+  <link rel="stylesheet" href="../../css/satoshi.css" />
+  <link rel="stylesheet" href="../../css/clash-display.css" />
+  <link 
+  rel="stylesheet" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"/>
+    <script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],   
+      displayMath: [['$$', '$$'], ['\\[', '\\]']] 
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js">
+  </script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+  id="MathJax-script"
+  async
+  ></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="nav-container">
+      <a href="#" class="logo">solaris0141</a>
+      <button class="hamburger" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="24" height="24"
+             viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             class="icon icon-tabler-menu">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M4 8l16 0" />
+          <path d="M4 16l16 0" />
+        </svg>
+      </button>
+      <nav class="nav-links">
+        <a href="#">About</a>
+        <a href="../../blogmenu.html">Blogs</a>
+        <a href="#">CTF</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="blog-container">
+    <header class="post-header">
+      <div class="post-type">Writeup</div> 
+      <h1 class="post-title">LACTF 2024 Writeup</h1>
+      <div class="post-date">
+        <span class="icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="icon icon-tabler-calendar-week"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
+            <path d="M16 3v4" />
+            <path d="M8 3v4" />
+            <path d="M4 11h16" />
+            <path d="M7 14h.013" />
+            <path d="M10.01 14h.005" />
+            <path d="M13.01 14h.005" />
+            <path d="M16.015 14h.005" />
+            <path d="M13.015 17h.005" />
+            <path d="M7.01 17h.005" />
+            <path d="M10.01 17h.005" />
+          </svg>
+        </span>
+        <small>21 February 2025</small>
+      </div>
+    </header>
+    <div class="post-image">
+      <img src="Banner.png" alt="LACTF Banner" />
+    </div>
+
+    <article class="post-body">
+        <p> This CTF had some interesting challenges this year around, definitely an improvement compared to last year. I was only able to solve 4 crypto challenges this time around though.  </p>
+        <section class="section-heading">
+            <div class="section-icon"> <!-- bolt -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="32" height="32"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
+                </svg>
+            </div>
+            <h2>crypto/valentines-day</h2>
+        </section>
+
+        <div class="quote-block">
+            <p>
+            Happy Valentine's Day! I'm unfortunately spending my Valentine's Day working on my CS131 homework. I'm getting bored so I wrote something for my professor. To keep it secret, I encrypted it with a Vigenere cipher with a really long key (161 characters long!)
+
+            As a hint, I gave you the first part of the message I encrypted. Surely, you still can't figure it out though?
+            
+            Flag format is lactf{xxx} with only lower case letters, numbers, and underscores between the braces.
+            </p>
+        </div>
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <button class="toggle-btn" aria-label="Collapse snippet">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+                </button>
+                <span class="file-name">ct.txt</span>
+                <span class="language-badge">Text</span>
+            </div>
+            <div class="code-block-content">
+                <button class="copy-btn" aria-label="Copy code">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="clipboard-icon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+                </button>
+                <pre><code class="language-plaintext" data-src="crypto_valentines-day/ct.txt"></code></pre>
+            </div>
+        </div>
+
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <button class="toggle-btn" aria-label="Collapse snippet">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+                </button>
+                <span class="file-name">intro.txt</span>
+                <span class="language-badge">Text</span>
+            </div>
+            <div class="code-block-content">
+                <button class="copy-btn" aria-label="Copy code">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="clipboard-icon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+                </button>
+                <pre><code class="language-plaintext" data-src="crypto_valentines-day/intro.txt"></code></pre>
+            </div>
+        </div>
+
+        <section class="subsection-heading">
+        <div class="subsection-icon">
+            <!-- flask -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icon-tabler-filled icon-tabler-flask">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 2a1 1 0 0 1 0 2v4.826l3.932 10.814l.034 .077a1.7 1.7 0 0 1 -.002 1.193l-.07 .162a1.7 1.7 0 0 1 -1.213 .911l-.181 .017h-11l-.181 -.017a1.7 1.7 0 0 1 -1.285 -2.266l.039 -.09l3.927 -10.804v-4.823a1 1 0 1 1 0 -2h6zm-2 2h-2v4h2v-4z"/>
+            </svg>
+        </div>
+        <h3>Solution</h3>
+        </section>
+
+        <p>We are given a text file <strong><a href="crypto_valentines-day/ct.txt">ct.txt</a></strong> which looks to be encrypted by the <strong>Vigenere Cipher</strong> and an <strong><a href="crypto_valentines-day/intro.txt">intro.txt</a></strong> which is the unciphered part of the first paragraph. We can first try to obtain the key using the first paragraph.</p>
+
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <button class="toggle-btn" aria-label="Collapse snippet">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+                </button>
+                <span class="file-name">solution.py</span>
+                <span class="language-badge">Python</span>
+            </div>
+            <div class="code-block-content">
+                <button class="copy-btn" aria-label="Copy code">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="clipboard-icon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+                </button>
+                <pre><code class="language-python" data-src="crypto_valentines-day/solution.py"></code></pre>
+            </div>
+        </div>
+
+        <p>The key we obtain from this is:</p>
+
+        <div class="quote-block">
+            <p>
+            NEVERGONNAGIVEYOUUPNEVERGONNALETYOUDOWNNEVERGONNARUNAROUNDANDDESERTYOUNEVERGONNAMAKEYOUCRYNEVERGONNASAYGOO
+            </p>
+        </div>
+
+        <p>This key is only 106 characters long which means we are still missing 55 characters of the key. Since it's obvious that this key is based on *Rick Roll*, we can just fill in the rest of the chorus as the key.</p>
+
+        <div class="quote-block">
+            <p>
+            NEVERGONNAGIVEYOUUPNEVERGONNALETYOUDOWNNEVERGONNARUNAROUNDANDDESERTYOUNEVERGONNAMAKEYOUCRYNEVERGONNASAYGOODBYENEVERGONNATELLALIEANDHURTYOU
+            </p>
+        </div>
+
+        <p>Now we are still missing 23 characters of the key, but it should be alright if we just append some 23 long characters into the end to make sure the key loops correctly, then we should be able to observe some parts of the text unencrypted.</p>
+
+        <figure class="figure">
+            <img
+            src="crypto_valentines-day/cyberchef.jpg"
+            alt="Vigenere Cipher Cyberchef"
+            class="figure-image"
+            />
+            <figcaption class="figure-caption">
+            Vigenere Cipher Decode with Cyberchef
+            </figcaption>
+        </figure>
+
+        <section class="subsection-heading">
+        <div class="subsection-icon">
+            <!-- flag -->
+            <svg  xmlns="http://www.w3.org/2000/svg"  
+            width="24"  height="24"  
+            viewBox="0 0 24 24"  
+            fill="currentColor"  
+            class="icon icon-tabler icons-tabler-filled icon-tabler-flag-3">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M19 4c.852 0 1.297 .986 .783 1.623l-.076 .084l-3.792 3.793l3.792 3.793c.603 .602 .22 1.614 -.593 1.701l-.114 .006h-13v6a1 1 0 0 1 -.883 .993l-.117 .007a1 1 0 0 1 -.993 -.883l-.007 -.117v-16a1 1 0 0 1 .883 -.993l.117 -.007h14z" />
+            </svg>
+        </div>
+        <h3>Flag</h3>
+        </section>
+
+        <div class="quote-block">
+            <p>
+            lactf{known_plaintext_and_were_off_to_the_races}
+            </p>
+        </div>
+        
+    </article>
+  </main>
+  <script src="../../js/blogpage.js" defer></script>
+</body>
+</html>
+
