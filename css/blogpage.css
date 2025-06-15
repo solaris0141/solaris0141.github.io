@@ -446,12 +446,12 @@ a:hover {
   font-size: 0.9rem;
   color: var(--secondary);
   margin-top: 0.5rem;
-  font-family: 'Satoshi-Regular', sans-serif;
+  font-family: 'Satoshi-Regular', sans-serif
 }
 
 mjx-container[jax="SVG"] {
   margin: 1.5rem 0;
-  font-size: 1.1rem; 
+  font-size: 1.25rem; 
 
 }
 
