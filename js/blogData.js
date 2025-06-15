@@ -13,5 +13,12 @@ const blogPosts = [
     image: "blogs/21-02-2025-GCC2025-Taiwan/GroupPhoto.jpg",
     type: "Blog"
   },
+  {
+    title: "LACTF 2024 Writeup",
+    date: "March 6 2024",
+    link: "blogs/06-03-2024-LACTF-2024-Writeup/06-03-2024-LACTF-2024-Writeup.html",
+    image: "blogs/06-03-2024-LACTF-2024-Writeup/Banner.png",
+    type: "Writeup"
+  },
 
 ];

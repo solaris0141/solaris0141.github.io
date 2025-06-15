@@ -281,10 +281,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-family: "Satoshi-Regular";
   color: var(--secondary);
   margin-bottom: 0.5rem;
+  margin-top: 0.2rem
 }
 .date-row .info {
   display: flex;
