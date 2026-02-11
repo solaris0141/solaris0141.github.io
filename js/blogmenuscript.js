@@ -16,7 +16,7 @@ function renderFeatured(post) {
       <h2 class="featured-title">
         <a href="${post.link}">${post.title}</a>
       </h2>
-      <a class="featured-button" href="${post.link}">Read</a>
+      <a class="featured-button" href="${post.link}">Read More</a>
     </div>
     <div class="featured-image">
       <div class="image-crop-3-2">

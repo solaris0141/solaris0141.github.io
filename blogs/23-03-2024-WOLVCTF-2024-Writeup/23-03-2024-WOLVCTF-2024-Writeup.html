@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LACTF 2024 Writeup</title>  <!-- change -->
+  <title>Wolv CTF 2024 Writeup</title>
   <link rel="stylesheet" href="../../css/blogpage.css" />
   <link rel="stylesheet" href="../../css/satoshi.css" />
   <link rel="stylesheet" href="../../css/clash-display.css" />
@@ -60,7 +60,7 @@
   <main class="blog-container">
     <header class="post-header">
       <div class="post-type">Writeup</div> 
-      <h1 class="post-title">LACTF 2024 Writeup</h1>
+      <h1 class="post-title">WolvCTF 2024 Writeup</h1>
       <div class="post-date">
         <span class="icon">
           <svg
@@ -87,15 +87,15 @@
             <path d="M10.01 17h.005" />
           </svg>
         </span>
-        <small>6 March 2024</small>
+        <small>23 March 2024</small>
       </div>
     </header>
     <div class="post-image">
-      <img src="Banner.png" alt="LACTF Banner" />
+      <img src="Banner.webp" alt="WolvCTF Banner" />
     </div>
-
+    
     <article class="post-body">
-        <p> This CTF had some interesting challenges this year around, definitely an improvement compared to last year. I was only able to solve 4 crypto challenges this time around though.
+        <p> This CTF event had a lot of focus on AES and hashing for the crypto category. I managed to solve 5/7 this time around eventhough I think I could have solved the remaining 2 if I was given more time to do a thorough analysis. 
         </p>
 
         <section class="section-heading">
@@ -109,19 +109,9 @@
                 <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
                 </svg>
             </div>
-            <h2>crypto/valentines-day</h2>
+            <h2>crypto/Limited1</h2>
         </section>
 
-        <div class="quote-block">
-            <p>
-            Happy Valentine's Day! I'm unfortunately spending my Valentine's Day working on my CS131 homework. I'm getting bored so I wrote something for my professor. To keep it secret, I encrypted it with a Vigenere cipher with a really long key (161 characters long!)
-
-            As a hint, I gave you the first part of the message I encrypted. Surely, you still can't figure it out though?
-            
-            Flag format is lactf{xxx} with only lower case letters, numbers, and underscores between the braces.
-            </p>
-        </div>
-
         <div class="code-block-wrapper">
             <div class="code-block-header">
                 <button class="toggle-btn" aria-label="Collapse snippet">
@@ -132,8 +122,8 @@
                     <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
                 </svg>
                 </button>
-                <span class="file-name">ct.txt</span>
-                <span class="language-badge">Text</span>
+                <span class="file-name">chall_time.py</span>
+                <span class="language-badge">Python</span>
             </div>
             <div class="code-block-content">
                 <button class="copy-btn" aria-label="Copy code">
@@ -147,36 +137,7 @@
                     <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
                 </svg>
                 </button>
-                <pre><code class="language-plaintext" data-src="crypto_valentines-day/ct.txt"></code></pre>
-            </div>
-        </div>
-
-        <div class="code-block-wrapper">
-            <div class="code-block-header">
-                <button class="toggle-btn" aria-label="Collapse snippet">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" viewBox="0 0 24 24"
-                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
-                </svg>
-                </button>
-                <span class="file-name">intro.txt</span>
-                <span class="language-badge">Text</span>
-            </div>
-            <div class="code-block-content">
-                <button class="copy-btn" aria-label="Copy code">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"
-                    class="clipboard-icon">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-                </svg>
-                </button>
-                <pre><code class="language-plaintext" data-src="crypto_valentines-day/intro.txt"></code></pre>
+                <pre><code class="language-python" data-src="crypto_Limited1/chall_time.py"></code></pre>
             </div>
         </div>
 
@@ -195,154 +156,8 @@
         <h3>Solution</h3>
         </section>
 
-        <p>We are given a text file <strong><a href="crypto_valentines-day/ct.txt">ct.txt</a></strong> which looks to be encrypted by the <strong>Vigenere Cipher</strong> and an <strong><a href="crypto_valentines-day/intro.txt">intro.txt</a></strong> which is the unciphered part of the first paragraph. We can first try to obtain the key using the first paragraph.</p>
-
-        <div class="code-block-wrapper">
-            <div class="code-block-header">
-                <button class="toggle-btn" aria-label="Collapse snippet">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" viewBox="0 0 24 24"
-                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
-                </svg>
-                </button>
-                <span class="file-name">solution.py</span>
-                <span class="language-badge">Python</span>
-            </div>
-            <div class="code-block-content">
-                <button class="copy-btn" aria-label="Copy code">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"
-                    class="clipboard-icon">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-                </svg>
-                </button>
-                <pre><code class="language-python" data-src="crypto_valentines-day/solution.py"></code></pre>
-            </div>
-        </div>
-
-        <p>The key we obtain from this is:</p>
-
-        <div class="quote-block">
-            <p>
-            NEVERGONNAGIVEYOUUPNEVERGONNALETYOUDOWNNEVERGONNARUNAROUNDANDDESERTYOUNEVERGONNAMAKEYOUCRYNEVERGONNASAYGOO
-            </p>
-        </div>
-
-        <p>This key is only 106 characters long which means we are still missing 55 characters of the key. Since it's obvious that this key is based on *Rick Roll*, we can just fill in the rest of the chorus as the key.</p>
-
-        <div class="quote-block">
-            <p>
-            NEVERGONNAGIVEYOUUPNEVERGONNALETYOUDOWNNEVERGONNARUNAROUNDANDDESERTYOUNEVERGONNAMAKEYOUCRYNEVERGONNASAYGOODBYENEVERGONNATELLALIEANDHURTYOU
-            </p>
-        </div>
-
-        <p>Now we are still missing 23 characters of the key, but it should be alright if we just append some 23 long characters into the end to make sure the key loops correctly, then we should be able to observe some parts of the text unencrypted.</p>
-
-        <figure class="figure">
-            <img
-            src="crypto_valentines-day/cyberchef.jpg"
-            alt="Vigenere Cipher Cyberchef"
-            class="figure-image"
-            />
-            <figcaption class="figure-caption">
-            Vigenere Cipher Decode with Cyberchef
-            </figcaption>
-        </figure>
-
-        <section class="subsection-heading">
-        <div class="subsection-icon">
-            <!-- flag -->
-            <svg  xmlns="http://www.w3.org/2000/svg"  
-            width="24"  height="24"  
-            viewBox="0 0 24 24"  
-            fill="currentColor"  
-            class="icon icon-tabler icons-tabler-filled icon-tabler-flag-3">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M19 4c.852 0 1.297 .986 .783 1.623l-.076 .084l-3.792 3.793l3.792 3.793c.603 .602 .22 1.614 -.593 1.701l-.114 .006h-13v6a1 1 0 0 1 -.883 .993l-.117 .007a1 1 0 0 1 -.993 -.883l-.007 -.117v-16a1 1 0 0 1 .883 -.993l.117 -.007h14z" />
-            </svg>
-        </div>
-        <h3>Flag</h3>
-        </section>
-
-        <div class="quote-block">
-            <p>
-            lactf{known_plaintext_and_were_off_to_the_races}
-            </p>
-        </div>
-
-        <section class="section-heading">
-            <div class="section-icon"> <!-- bolt -->
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="32" height="32"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-                </svg>
-            </div>
-            <h2>crypto/very-hot</h2>
-        </section>
-
-        <div class="quote-block">
-            <p>
-            I didn't think that using two primes for my RSA was sexy enough, so I used three.
-            </p>
-        </div>
-
-        <div class="code-block-wrapper">
-            <div class="code-block-header">
-                <button class="toggle-btn" aria-label="Collapse snippet">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" viewBox="0 0 24 24"
-                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
-                </svg>
-                </button>
-                <span class="file-name">src.py</span>
-                <span class="language-badge">Python</span>
-            </div>
-            <div class="code-block-content">
-                <button class="copy-btn" aria-label="Copy code">
-                <svg xmlns="http://www.w3.org/2000/svg"
-                    width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"
-                    class="clipboard-icon">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
-                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
-                </svg>
-                </button>
-                <pre><code class="language-python" data-src="crypto_very-hot/src.py"></code></pre>
-            </div>
-        </div>
-
-        <section class="subsection-heading">
-        <div class="subsection-icon">
-            <!-- flask -->
-            <svg xmlns="http://www.w3.org/2000/svg"
-                width="24" height="24"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="icon icon-tabler icon-tabler-filled icon-tabler-flask">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M15 2a1 1 0 0 1 0 2v4.826l3.932 10.814l.034 .077a1.7 1.7 0 0 1 -.002 1.193l-.07 .162a1.7 1.7 0 0 1 -1.213 .911l-.181 .017h-11l-.181 -.017a1.7 1.7 0 0 1 -1.285 -2.266l.039 -.09l3.927 -10.804v-4.823a1 1 0 1 1 0 -2h6zm-2 2h-2v4h2v-4z"/>
-            </svg>
-        </div>
-        <h3>Solution</h3>
-        </section>
-
-        <p>
-            At first glance this is a RSA with 3 primes, and the rest pretty much follow the textbook style of encryption. First of all, I immediately attempted to factorize the modulus with <strong>factordb</strong> and surprisingly I manage to obtain the 3 primes already. The decryption process is pretty much textbook from here onwards. 
-        </p>
+        <p>This challenge basically demonstrates a simple XOR operation but the key we need is the epoch value of the time that the script was ran modded by 256. This makes the challenge relatively easy to solve due to the fact that the time was $\mod256$
+        We can just write a python script that brute force through all 256 possible values and check if the first 5 characters matches with <em>wctf</em></p>
 
         <div class="code-block-wrapper">
             <div class="code-block-header">
@@ -369,7 +184,7 @@
                     <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
                 </svg>
                 </button>
-                <pre><code class="language-python" data-src="crypto_very-hot/sol.py"></code></pre>
+                <pre><code class="language-python" data-src="crypto_Limited1/sol.py"></code></pre>
             </div>
         </div>
 
@@ -390,7 +205,7 @@
 
         <div class="quote-block">
             <p>
-            lactf{th4t_w45_n0t_so_53xY}
+            wctf{f34R_0f_m1ss1ng_0ut}
             </p>
         </div>
 
@@ -405,14 +220,8 @@
                 <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
                 </svg>
             </div>
-            <h2>crypto/selamat-pagi</h2>
+            <h2>crypto/Limited2</h2>
         </section>
-
-        <div class="quote-block">
-            <p>
-            If you talk in another language, nobody can understand what you say! Check out this message I sent in Indonesian. To add some extra security, I also applied a monoalphabetic substitution cipher on it!
-            </p>
-        </div>
 
         <div class="code-block-wrapper">
             <div class="code-block-header">
@@ -424,8 +233,8 @@
                     <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
                 </svg>
                 </button>
-                <span class="file-name">message.txt</span>
-                <span class="language-badge">Text</span>
+                <span class="file-name">NY_chall_time.py</span>
+                <span class="language-badge">Python</span>
             </div>
             <div class="code-block-content">
                 <button class="copy-btn" aria-label="Copy code">
@@ -439,7 +248,7 @@
                     <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
                 </svg>
                 </button>
-                <pre><code class="language-plaintext" data-src="crypto_selamat-pagi/message.txt"></code></pre>
+                <pre><code class="language-python" data-src="crypto_Limited2/NY_chall_time.py"></code></pre>
             </div>
         </div>
 
@@ -458,9 +267,36 @@
         <h3>Solution</h3>
         </section>
 
-        <p>
-            Looking at the challenge statement we can roughly expect that the decrypted text will be in Indonesian. For this challenge, I actually managed to solve it without needing to use any frquency analysis. I substituted the known words such as <strong>lactf</strong> and then eventually finding out some of the Indonesian words. The whole text was decrypted easily after I found out that the flag started with the challenge title <strong>selamat pagi</strong>
-        </p>
+        <p>This challenge is a modified version of the Limited1 challenge. Now in Limited2, we are given a range of possible epoch time value between December 31 2023 to the start of January 1 2024. And for every character xored, the script will pause for a random amount of time before repeating the xor operation for the next character. The solution to this challenge is stil relatively similiar to how we solved Limited1, which is to just brute force all possible epoch time values and try to match the first few characters to the flag format <em>wctf</em></p>
+
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <button class="toggle-btn" aria-label="Collapse snippet">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+                </button>
+                <span class="file-name">sol.py</span>
+                <span class="language-badge">Python</span>
+            </div>
+            <div class="code-block-content">
+                <button class="copy-btn" aria-label="Copy code">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="clipboard-icon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+                </button>
+                <pre><code class="language-python" data-src="crypto_Limited2/sol.py"></code></pre>
+            </div>
+        </div>
 
         <section class="subsection-heading">
         <div class="subsection-icon">
@@ -479,7 +315,7 @@
 
         <div class="quote-block">
             <p>
-            lactf{selamat_pagi_apakah_kamu_suka_analisis_frekuensi}
+            wctf{b4ll_dr0p}
             </p>
         </div>
 
@@ -494,14 +330,8 @@
                 <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
                 </svg>
             </div>
-            <h2>crypto/hOlyT</h2>
+            <h2>crypto/Blocked1</h2>
         </section>
-
-        <div class="quote-block">
-            <p>
-            God is trying to talk to you through a noisy wire Use nc chall.lac.tf 31171 to talk to him.
-            </p>
-        </div>
 
         <div class="code-block-wrapper">
             <div class="code-block-header">
@@ -528,29 +358,9 @@
                     <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
                 </svg>
                 </button>
-                <pre><code class="language-python" data-src="crypto_hOlyT/server.py"></code></pre>
+                <pre><code class="language-python" data-src="crypto_Blocked1/server.py"></code></pre>
             </div>
         </div>
-
-        <p>
-            Observing this at first, it encrypts the flag with RSA and then allows us to ask for an "advice", which is just the square root modulus of the number we inputted. The advice function essentially does this: 
-        </p>
-        
-        <ol>
-            <li>We input our number $x$</li>
-            <li>
-            Checks if $x$ is a quadratic residue of $p$ and $q$ by using <strong>Legendre's Symbol</strong>.
-            
-            $$a/p \equiv a^{\frac{p-1}{2}} \mod n$$
-            <p>$(a / p) = 1$ if $a$ is a quadratic residue and $a \not\equiv 0 \mod p$</p>  
-            <p>$(a / p) = -1$ if $a$ is a quadratic non-residue</p>
-            </li>
-            <li>Uses the <strong>Tonelli Shanks Algorithm</strong> to find the square root of $x$ modulus $p$ and $q$</li>
-            <li>Perform the <strong>Chinese Remainder Theorem</strong> on both the $x_1$ and $x_2$ to obtain $y$ which is the square root of $x$ modulus $n$</li>
-            <li>We receives the value $y$</li>
-
-        
-        </ol>
 
         <section class="subsection-heading">
         <div class="subsection-icon">
@@ -567,24 +377,20 @@
         <h3>Solution</h3>
         </section>
 
-        <p>
-            We can create a script that consistently sends random $x^2$ value to the server. The idea is that if we manage to find the modular square root of $x^2$, we can use it to factorize the modulus and obtain the prime factors $p$ and $q$.
-
-            $$y^2 \equiv x^2 \mod n $$
-
-            $$y^2 - x^2 \equiv 0 \mod n $$
-
-            $$(y+x)(y-x) \equiv 0 \mod n  $$
-
-            $$(y+x)(y-x) \equiv k*n $$
-
-            $$ (y+x)(y-x) \equiv k*p *q $$
-
-
+        <p>Looking at this server script, we can see that it's an implementation of AES CBC and it requires us to somehow manipulate the ciphertext so that when the server decrypts it will be able to detect the username <em>doubledelete</em>. We can get our own password reset token with the second selection and we could know how the plaintext of this token would look like as well. This means we can obtain the byte values (let's call it $h$) 
         </p>
-        <p>
-        This means that if we compute $\text{gcd(y + x,n)}$ and $\text{gcd(y - x,n)}$, we should be able to obtain the values of $p$ and $q$.
-        </p>
+
+        <p>$$ h= pt[1] \otimes ct[0]$$</p>
+
+        <p>Since the first part of the plaintext and ciphertext is not important in the conditions to obtain the flag at all, we can choose to manipulate $ct[0]$ in a way that makes $pt[1] = doubledelete\0\0\0\0$ when decrypted.</p>
+
+        <p>$$ newct[0] = doubledelete\0\0\0\0 \otimes h $$</p>
+
+        <figure class="figure">
+            <img src="crypto_Blocked1/blocked1ss.jpg" class="figure-image" alt="Blocked 1 Diagram"/>
+        </figure>
+
+        <p>Now we can just send the new token (iv + ct[0] + newct[1]) back to the server and it should be able to decrypt and receive the username "doubledelete".</p>
 
         <div class="code-block-wrapper">
             <div class="code-block-header">
@@ -611,7 +417,7 @@
                     <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
                 </svg>
                 </button>
-                <pre><code class="language-python" data-src="crypto_hOlyT/sol.py"></code></pre>
+                <pre><code class="language-python" data-src="crypto_Blocked1/sol.py"></code></pre>
             </div>
         </div>
 
@@ -632,7 +438,239 @@
 
         <div class="quote-block">
             <p>
-            lactf{1s_r4bin_g0d?}
+            wctf{th3y_l0st_th3_f1rst_16_byt35_0f_th3_m3ss4g3_t00}
+            </p>
+        </div>
+
+        <section class="section-heading">
+            <div class="section-icon"> <!-- bolt -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="32" height="32"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
+                </svg>
+            </div>
+            <h2>crypto/Blocked2</h2>
+        </section>
+
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <button class="toggle-btn" aria-label="Collapse snippet">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+                </button>
+                <span class="file-name">server.py</span>
+                <span class="language-badge">Python</span>
+            </div>
+            <div class="code-block-content">
+                <button class="copy-btn" aria-label="Copy code">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="clipboard-icon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+                </button>
+                <pre><code class="language-python" data-src="crypto_Blocked2/server.py"></code></pre>
+            </div>
+        </div>
+
+        <section class="subsection-heading">
+        <div class="subsection-icon">
+            <!-- flask -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icon-tabler-filled icon-tabler-flask">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 2a1 1 0 0 1 0 2v4.826l3.932 10.814l.034 .077a1.7 1.7 0 0 1 -.002 1.193l-.07 .162a1.7 1.7 0 0 1 -1.213 .911l-.181 .017h-11l-.181 -.017a1.7 1.7 0 0 1 -1.285 -2.266l.039 -.09l3.927 -10.804v-4.823a1 1 0 1 1 0 -2h6zm-2 2h-2v4h2v-4z"/>
+            </svg>
+        </div>
+        <h3>Solution</h3>
+        </section>
+
+        <p>This is a modified version of the Blocked 1 challenge, this time a custom AES ECB encryption is implemented and I have roughly sketched it out in the diagram below. </p>
+
+        <figure class="figure">
+            <img src="crypto_Blocked2/blocked2ss.jpg" class="figure-image" alt="Blocked 2 Diagram"/>
+        </figure>
+
+        <p>The vulnerability of this challenge is that the iv is given together with the ciphertext just like the Blocked 1 challenge which is how we will be able to decrypt the rest of the plaintext blocks. Looking at the encryption scheme, we can see that the last block of ciphertext is always just a direct AES ECB encryption from the last block of plaintext. This means that we can get the ECB encryption fo whatever block of plaintext then xor with the known ciphertext to recover the next block of plaintext. And luckily, the IV given to us will be the first to start this loop of decryption. </p>
+
+        <ol>
+            <li>Send IV to get E(IV)</li>
+            <li>$pt[0] = E(iv) \otimes ct[0]$</li>
+            <li>Repeat the process but shift to the next block (send pt[0] and xor with ct[1] to get pt[1])</li>
+        </ol>
+
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <button class="toggle-btn" aria-label="Collapse snippet">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+                </button>
+                <span class="file-name">sol.py</span>
+                <span class="language-badge">Python</span>
+            </div>
+            <div class="code-block-content">
+                <button class="copy-btn" aria-label="Copy code">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="clipboard-icon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+                </button>
+                <pre><code class="language-python" data-src="crypto_Blocked2/sol.py"></code></pre>
+            </div>
+        </div>
+
+        <section class="subsection-heading">
+        <div class="subsection-icon">
+            <!-- flag -->
+            <svg  xmlns="http://www.w3.org/2000/svg"  
+            width="24"  height="24"  
+            viewBox="0 0 24 24"  
+            fill="currentColor"  
+            class="icon icon-tabler icons-tabler-filled icon-tabler-flag-3">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M19 4c.852 0 1.297 .986 .783 1.623l-.076 .084l-3.792 3.793l3.792 3.793c.603 .602 .22 1.614 -.593 1.701l-.114 .006h-13v6a1 1 0 0 1 -.883 .993l-.117 .007a1 1 0 0 1 -.993 -.883l-.007 -.117v-16a1 1 0 0 1 .883 -.993l.117 -.007h14z" />
+            </svg>
+        </div>
+        <h3>Flag</h3>
+        </section>
+
+        <div class="quote-block">
+            <p>
+            wctf{s0m3_g00d_s3cur1ty_y0u_h4v3_r0lling_y0ur_0wn_crypt0_huh}
+            </p>
+        </div>
+
+        <section class="section-heading">
+            <div class="section-icon"> <!-- bolt -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="32" height="32"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
+                </svg>
+            </div>
+            <h2>crypto/TagSeries1</h2>
+        </section>
+
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <button class="toggle-btn" aria-label="Collapse snippet">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+                </button>
+                <span class="file-name">chal.py</span>
+                <span class="language-badge">Python</span>
+            </div>
+            <div class="code-block-content">
+                <button class="copy-btn" aria-label="Copy code">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="clipboard-icon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+                </button>
+                <pre><code class="language-python" data-src="crypto_TagSeries1/chal.py"></code></pre>
+            </div>
+        </div>
+
+        <section class="subsection-heading">
+        <div class="subsection-icon">
+            <!-- flask -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="icon icon-tabler icon-tabler-filled icon-tabler-flask">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M15 2a1 1 0 0 1 0 2v4.826l3.932 10.814l.034 .077a1.7 1.7 0 0 1 -.002 1.193l-.07 .162a1.7 1.7 0 0 1 -1.213 .911l-.181 .017h-11l-.181 -.017a1.7 1.7 0 0 1 -1.285 -2.266l.039 -.09l3.927 -10.804v-4.823a1 1 0 1 1 0 -2h6zm-2 2h-2v4h2v-4z"/>
+            </svg>
+        </div>
+        <h3>Solution</h3>
+        </section>
+
+        <p>The server requires us to send a command and a tag where the command starts with the set message and the tag must match with the return from the oracle function. The oracle function will take in the string from the command input and encrypts it with AES ECB but only returns the last block of ciphertext. Basically, we could send a set string with one block of length to the command just to receive back the ciphertext of the set string block. Then we can just send to the server the set message and make sure the last block is the same as the set string we sent previously so that the when we send the ciphertext as the tag, we will get a match and thus obtain the flag. </p>
+
+        <div class="code-block-wrapper">
+            <div class="code-block-header">
+                <button class="toggle-btn" aria-label="Collapse snippet">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="currentColor" class="icon icon-tabler-filled icon-tabler-caret-down">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 9c.852 0 1.297 .986 .783 1.623l-.076 .084l-6 6a1 1 0 0 1 -1.32 .083l-.094 -.083l-6 -6l-.083 -.094l-.054 -.077l-.054 -.096l-.017 -.036l-.027 -.067l-.032 -.108l-.01 -.053l-.01 -.06l-.004 -.057v-.118l.005 -.058l.009 -.06l.01 -.052l.032 -.108l.027 -.067l.07 -.132l.065 -.09l.073 -.081l.094 -.083l.077 -.054l.096 -.054l.036 -.017l.067 -.027l.108 -.032l.053 -.01l.06 -.01l.057 -.004l12.059 -.002z" />
+                </svg>
+                </button>
+                <span class="file-name">sol.py</span>
+                <span class="language-badge">Python</span>
+            </div>
+            <div class="code-block-content">
+                <button class="copy-btn" aria-label="Copy code">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"
+                    class="clipboard-icon">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                </svg>
+                </button>
+                <pre><code class="language-python" data-src="crypto_TagSeries1/sol.py"></code></pre>
+            </div>
+        </div>
+
+        <section class="subsection-heading">
+        <div class="subsection-icon">
+            <!-- flag -->
+            <svg  xmlns="http://www.w3.org/2000/svg"  
+            width="24"  height="24"  
+            viewBox="0 0 24 24"  
+            fill="currentColor"  
+            class="icon icon-tabler icons-tabler-filled icon-tabler-flag-3">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M19 4c.852 0 1.297 .986 .783 1.623l-.076 .084l-3.792 3.793l3.792 3.793c.603 .602 .22 1.614 -.593 1.701l-.114 .006h-13v6a1 1 0 0 1 -.883 .993l-.117 .007a1 1 0 0 1 -.993 -.883l-.007 -.117v-16a1 1 0 0 1 .883 -.993l.117 -.007h14z" />
+            </svg>
+        </div>
+        <h3>Flag</h3>
+        </section>
+
+        <div class="quote-block">
+            <p>
+            wctf{C0nGr4ts_0n_g3tt1ng_p4st_A3S}
             </p>
         </div>
 
@@ -641,4 +679,3 @@
   <script src="../../js/blogpage.js" defer></script>
 </body>
 </html>
-
