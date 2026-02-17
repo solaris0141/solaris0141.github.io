@@ -1,283 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Experience at SINCON 2025</title>  <!-- change -->
-  <link rel="stylesheet" href="../../css/blogpage.css" />
-  <link rel="stylesheet" href="../../css/satoshi.css" />
-  <link rel="stylesheet" href="../../css/clash-display.css" />
-  <link 
-  rel="stylesheet" 
-  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Solaris0141 | Experience at SINCON 2025</title>
 
-<body>
-  <header class="topbar">
-    <div class="nav-container">
-      <a href="#" class="logo">solaris0141</a>
-      <button class="hamburger" aria-label="Menu">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="24" height="24"
-             viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             class="icon icon-tabler-menu">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M4 8l16 0" />
-          <path d="M4 16l16 0" />
-        </svg>
-      </button>
-      <nav class="nav-links">
-        <a href="#">About</a>
-        <a href="../../index.html">Blogs</a>
-        <a href="#">CTF</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Highlight.js (Standard include) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/poststyles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;700;800&family=Oswald:wght@400;500;700&family=Noto+Sans+JP:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-
-  <main class="blog-container">
-    <header class="post-header">
-      <div class="post-type">Blog</div> 
-      <h1 class="post-title">Experience at SINCON 2025</h1>
-      <div class="post-date">
-        <span class="icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler-calendar-week"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
-            <path d="M16 3v4" />
-            <path d="M8 3v4" />
-            <path d="M4 11h16" />
-            <path d="M7 14h.013" />
-            <path d="M10.01 14h.005" />
-            <path d="M13.01 14h.005" />
-            <path d="M16.015 14h.005" />
-            <path d="M13.015 17h.005" />
-            <path d="M7.01 17h.005" />
-            <path d="M10.01 17h.005" />
-          </svg>
-        </span>
-        <small>26 May 2025</small>
-      </div>
-    </header>
-    <div class="post-image">
-      <img src="Day1.jpg" alt="GroupPhoto" />
+    <!-- MathJax -->
+    <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  </head>
+  <body>
+     <!-- SVG Noise -->
+    <div class="absolute inset-0 z-50 pointer-events-none" style="position: fixed; top:0; left:0; width:100%; height:100%; opacity: 0.06; mix-blend-mode: overlay;">
+      <svg width="100%" height="100%">
+        <filter id="noise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noise)" />
+      </svg>
     </div>
 
-    <article class="post-body">
-      <p>
-        Soon entering into the halfway point of the year 2025, I was given an opportunity to go to SINCON 2025 together
-        with my friends. This event was held over 2 days and includes multiple workshops, talks, kampungs, and interesting
-        people to connect with. Here are some of the interesting activities that I have participated in.
-      </p>
+    <div class="page-wrapper">
+        
+        <!-- HEADER -->
+        <header class="blog-header">
+            <a href="../../index.html" class="header-title">
+                <span class="h-main">solaris0141</span>
+                <span class="h-div">//</span>
+                <span class="h-sub">Blogs & Writeups</span>
+            </a>
+            <a href="../../index.html" class="header-jp">ソラリス</a>
+        </header>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>"Hands-On with Active Directory Penetration Testing" by Sim Cher Boon</h2>
-      </section>
+        <main class="article-container">
+            <article class="article-main">
+                <h1 class="article-title">EXPERIENCE AT SINCON 2025</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item"><span>DATE:</span><span style="color: var(--c-white);">2025-05-26</span></div>
+                    <div class="meta-item"><span>//</span></div>
+                    <div class="meta-item"><span>CATEGORY:</span><span style="color: #4ade80;">BLOG</span></div>
+                    <div class="meta-item"><span>//</span></div>
+                    <div class="meta-item"><span>TAGS:</span><span style="color: var(--c-white);">CONFERENCE, SINGAPORE</span></div>
+                </div>
 
-      
-      <p>
-        This workshop was really insightful for me as I hve yet to dwelve deep into the field of active directory. I got to
-        learn about various types of attacks which I have never even knew existed and also add a few tools to my arsenal for
-        my next CTF. The workshop was presented in a way where we were given a CTF competition which we are guided from one
-        challenge to another. The CTF competition was then moved to their Cyber Range Kampung later on which I spent quite a 
-        while there trying to even get at least half of the total flags. This shows how much I still have to improve on my
-        active directory skills.
-      </p>
+                <img src="Day1.jpg" class="article-hero-img" alt="SINCON Group Photo">
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>"Implementing Quantum-safe Secure Email" by Tan Teik Guan & Choy Shi Hong</h2>
-      </section>
+                <!-- Mobile Navigation Index -->
+                <div class="mobile-toc">
+                    <span class="sidebar-title">NAVIGATION_INDEX</span>
+                    <nav class="toc-list">
+                        <a href="#ad-pentest" class="toc-link">01 // AD Penetration Testing</a>
+                        <a href="#quantum-email" class="toc-link">02 // Quantum-safe Email</a>
+                        <a href="#hardware" class="toc-link">03 // Hardware Kampung</a>
+                        <a href="#rfid-car" class="toc-link">04 // RFID & Car Security</a>
+                        <a href="#android" class="toc-link">05 // Unlocking Android Apps</a>
+                        <a href="#networking" class="toc-link">06 // Networking</a>
+                        <a href="#afterwords" class="toc-link">07 // Afterwords</a>
+                    </nav>
+                </div>
 
-      
-      <p>
-        This was a quick workshop by the Post-Quantum Kampung, which personally to me was my main interest throughout SINCON.
-        The workshop demonstrated one of their product, Safequard, which encrypts and decrypts email using the post-quantum 
-        algorithm ML-KEM. After the workshop, I went to visit the Post-Quantum Kampung and got to meet with many people in the
-        cryptography industry. Specifically, I got to learn more about the other products by pQCee, which gave me a new perspective
-        on how quantum-safe cryptography can be achieved in a much more feasible manner and also to not become an design nightmare
-        for the engineers.
-      </p>
+                <div class="article-content">
+                    <p>
+                        Soon entering into the halfway point of the year 2025, I was given an opportunity to go to SINCON 2025 together
+                        with my friends. This event was held over 2 days and includes multiple workshops, talks, kampungs, and interesting
+                        people to connect with. Here are some of the interesting activities that I have participated in.
+                    </p>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Hardware Kampung</h2>
-      </section>
+                    <h2 id="ad-pentest">"Hands-On with Active Directory Penetration Testing" by Sim Cher Boon</h2>
+                    
+                    <p>
+                        This workshop was really insightful for me as I have yet to delve deep into the field of active directory. I got to
+                        learn about various types of attacks which I have never even knew existed and also add a few tools to my arsenal for
+                        my next CTF. The workshop was presented in a way where we were given a CTF competition which we are guided from one
+                        challenge to another. The CTF competition was then moved to their Cyber Range Kampung later on which I spent quite a 
+                        while there trying to even get at least half of the total flags. This shows how much I still have to improve on my
+                        active directory skills.
+                    </p>
 
-      
-      <p>
-        There was a CTF challenge hosted by the Hardware Kampung as well which piqued my interest especially since I always
-        wanted to expand my skillset onto the more hardware level stuff. I got to learn how to brute force the serial speed,
-        bluetooth attacks, and many more.  
-      </p>
+                    <h2 id="quantum-email">"Implementing Quantum-safe Secure Email" by Tan Teik Guan & Choy Shi Hong</h2>
+                    
+                    <p>
+                        This was a quick workshop by the Post-Quantum Kampung, which personally to me was my main interest throughout SINCON.
+                        The workshop demonstrated one of their product, Safequard, which encrypts and decrypts email using the post-quantum 
+                        algorithm ML-KEM. After the workshop, I went to visit the Post-Quantum Kampung and got to meet with many people in the
+                        cryptography industry. Specifically, I got to learn more about the other products by pQCee, which gave me a new perspective
+                        on how quantum-safe cryptography can be achieved in a much more feasible manner and also to not become an design nightmare
+                        for the engineers.
+                    </p>
 
-      <figure class="figure">
-        <img
-          src="hardware.jpg"
-          alt="Hardware Kampung"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          Hardware Kampung
-        </figcaption>
-      </figure>
+                    <h2 id="hardware">Hardware Kampung</h2>
+                    
+                    <p>
+                        There was a CTF challenge hosted by the Hardware Kampung as well which piqued my interest especially since I always
+                        wanted to expand my skillset onto the more hardware level stuff. I got to learn how to brute force the serial speed,
+                        bluetooth attacks, and many more.  
+                    </p>
 
+                    <img src="hardware.jpg" alt="Hardware Kampung" style="width: 100%; height: auto; border: 1px solid var(--c-slate); margin: 2rem 0; opacity: 0.8;">
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>RFID Research Kampung and Car Security Kampung</h2>
-      </section>
+                    <h2 id="rfid-car">RFID Research Kampung and Car Security Kampung</h2>
+                    
+                    <p>
+                        I really enjoyed looking through the things presented by the RFID Research Kampung. Nevertheless, the Car Security Kampung was
+                        also interesting see with how they emulated the internal components. These two kampungs definitely gave me quite a few
+                        quirky ideas for my next few CTF challenges 😉. 
+                    </p>
 
-      
-      <p>
-        I really enjoyed looking through the things presented by the RFID Research Kampung. Nevertheless, the Car Security Kampung was
-        also interesting see with how they emulated the internal components. These two kampungs definitely gave me quite a few
-        quirky ideas for my next few CTF challenges 😉. 
-      </p>
+                    <h2 id="android">"Unlocking Android Apps: A Deep Dive into Hacking and Security" by Abhinand N & Akilesh Kumar</h2>
+                    
+                    <p>
+                        Thankfully I had already built up some of my android hacking foundations, so the workshop was relatively manageable for me to
+                        follow along. At the much later part of the workshop, it was fascinating to see how Frida hooking can be used in such different
+                        ways to bypass or achieve certain conditions. This made me eager to immediately start polishing up my android hacking skills. 
+                    </p>
+                    
+                    <h2 id="networking">Meeting Up With Various People and Also Some Familiar Faces?</h2>
+                    
+                    <p>
+                        One of the greatest thing about events like SINCON is that I get to meet up with various kinds of people, whether if we have the
+                        same focus point in the field of cybersecurity. Talking with different people about different things is undoubtedly my goto way for 
+                        obtaining unique inspirations, whether it be for a side project, CTF challenge, or just a point to research in. Fortunately as the 
+                        event was held in Singapore, I got the chance to connect back with the Singaporean GCC members as well. 
+                    </p>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>"Unlocking Android Apps: A Deep Dive into Hacking and Security" by Abhinand N & Akilesh Kumar</h2>
-      </section>
+                    <img src="GCC-Reunion.jpg" alt="GCC Reunion" style="width: 100%; height: auto; border: 1px solid var(--c-slate); margin: 2rem 0; opacity: 0.8;">
 
-      
-      <p>
-        Thankfully I had already built up some of my android hacking foundations, so the workshop was relatively manageable for me to
-        follow along. At the much later part of the workshop, it was fascinating to see how Frida hooking can be used in such different
-        ways to bypass or achieve certain conditions. This made me eager to immediately start polishing up my android hacking skills. 
-      </p>
-      
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Meeting Up Wit Various People and Also Some Familiar Faces?</h2>
-      </section>
+                    <h2 id="afterwords">Afterwords</h2>
 
-      
-      <p>
-        One of the greatest thing about events like SINCON is that I get to meet up with various kinds of people, whether if we have the
-        same focus point in the field of cybersecurity. Talking with different people about different things is undoubtedly my goto way for 
-        obtaining unique inspirations, whether it be for a side project, CTF challenge, or just a point to research in. Fortunately as the 
-        event was held in Singapore, I got the chance to connect back with the Singaporean GCC members as well. 
-      </p>
+                    <p>
+                        A very huge thank you to SherpaSec for sponsoring the tickets to SINCON 2025. It was an opportunity only made possible to have because 
+                        of SherpaSec. And finally, here's another group photo to commemorate the occasion. 
+                    </p>
 
-      <figure class="figure">
-        <img
-          src="GCC-Reunion.jpg"
-          alt="Reunion with GCC people"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          Mini GCC Reunion Photo
-        </figcaption>
-      </figure>
+                    <img src="GroupPhoto.jpg" alt="Commemorative Group Photo" style="width: 100%; height: auto; border: 1px solid var(--c-slate); margin: 2rem 0; opacity: 0.8;">
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- coffee -->
-              <svg  xmlns="http://www.w3.org/2000/svg"  
-              width="24"  height="24"  
-              viewBox="0 0 24 24"  
-              fill="none"  stroke="currentColor"  
-              stroke-width="2"  stroke-linecap="round"  
-              stroke-linejoin="round"  
-              class="icon icon-tabler icons-tabler-outline icon-tabler-coffee">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M3 14c.83 .642 2.077 1.017 3.5 1c1.423 .017 2.67 -.358 3.5 -1c.83 -.642 2.077 -1.017 3.5 -1c1.423 -.017 2.67 .358 3.5 1" />
-              <path d="M8 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2" />
-              <path d="M12 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2" />
-              <path d="M3 10h14v5a6 6 0 0 1 -6 6h-2a6 6 0 0 1 -6 -6v-5z" />
-              <path d="M16.746 16.726a3 3 0 1 0 .252 -5.555" />
-              </svg>
-          </div>
-          <h2>Afterwords</h2>
-      </section>
+                </div>
+            </article>
 
-      <p>
-        A very huge thanks you to SherpaSec for sponsoring the tickets to SINCON 2025. It was an opportunity only made possible to have because 
-        of SherpaSec. And finally, here's another group photo to commemorate the occasion. 
-      </p>
+            <aside class="sidebar">
+                <div class="sidebar-box toc-box">
+                    <span class="sidebar-title">NAVIGATION_INDEX</span>
+                    <nav class="toc-list">
+                        <a href="#ad-pentest" class="toc-link">01 // AD Penetration Testing</a>
+                        <a href="#quantum-email" class="toc-link">02 // Quantum-safe Email</a>
+                        <a href="#hardware" class="toc-link">03 // Hardware Kampung</a>
+                        <a href="#rfid-car" class="toc-link">04 // RFID & Car Security</a>
+                        <a href="#android" class="toc-link">05 // Unlocking Android Apps</a>
+                        <a href="#networking" class="toc-link">06 // Networking</a>
+                        <a href="#afterwords" class="toc-link">07 // Afterwords</a>
+                    </nav>
+                </div>
 
-      <figure class="figure">
-        <img
-          src="GroupPhoto.jpg"
-          alt="Commemorative Group Photo"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          Commemorative Group Photo
-        </figcaption>
-      </figure>
+                <div class="sidebar-box">
+                    <span class="sidebar-title">AUTHOR</span>
+                    <div class="id-container">
+                        <div class="id-logo">
+                            <span class="id-text">SOLARIS</span><span class="id-num">0141</span>
+                        </div>
+                        <div class="id-bottom">
+                            <span class="id-jp">ソラリス</span>
+                            <a href="https://github.com/solaris0141" target="_blank" class="id-social" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
 
-    </article>
-  </main>
-  <script src="../../js/blogpage.js" defer></script>
-</body>
+        <footer class="simple-footer">
+            <div>© 2026 SOLARIS0141 // ALL RIGHTS RESERVED</div>
+            <div>END_OF_POST</div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const MAX_HEIGHT = 300;
+            const codeBlocks = document.querySelectorAll('code[data-src]');
+
+            codeBlocks.forEach(async (block) => {
+                const url = block.getAttribute('data-src');
+                const pre = block.parentElement; 
+                const wrapper = pre.parentElement;
+
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error(`Status: ${response.status}`);
+                    const text = await response.text();
+                    block.textContent = text;
+                    if (window.hljs) hljs.highlightElement(block);
+
+                    setTimeout(() => {
+                        if (pre.scrollHeight > MAX_HEIGHT) {
+                            wrapper.classList.add('collapsed');
+                            const btn = document.createElement('button');
+                            btn.className = 'code-expand-btn';
+                            btn.innerText = 'EXPAND_SOURCE //';
+                            btn.addEventListener('click', () => {
+                                wrapper.classList.remove('collapsed');
+                                btn.remove();
+                            });
+                            wrapper.appendChild(btn);
+                        }
+                    }, 50);
+                } catch (error) {
+                    block.textContent = `// Error loading code from: ${url}\n// ${error.message}`;
+                    console.error("Fetch error:", error);
+                }
+            });
+        });
+
+        function copyCode(btn) {
+            const wrapper = btn.closest('.code-wrapper');
+            const pre = wrapper.querySelector('pre');
+            const code = pre.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = "COPIED!";
+                btn.style.borderColor = "#4ade80";
+                btn.style.color = "#4ade80";
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.borderColor = "";
+                    btn.style.color = "";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+  </body>
 </html>
-

@@ -1,361 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Global Cybersecurity Camp 2025</title>  <!-- change -->
-  <link rel="stylesheet" href="../../css/blogpage.css" />
-  <link rel="stylesheet" href="../../css/satoshi.css" />
-  <link rel="stylesheet" href="../../css/clash-display.css" />
-  <link 
-  rel="stylesheet" 
-  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Solaris0141 | GCC 2025</title>
 
-<body>
-  <header class="topbar">
-    <div class="nav-container">
-      <a href="#" class="logo">solaris0141</a>
-      <button class="hamburger" aria-label="Menu">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="24" height="24"
-             viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             class="icon icon-tabler-menu">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M4 8l16 0" />
-          <path d="M4 16l16 0" />
-        </svg>
-      </button>
-      <nav class="nav-links">
-        <a href="#">About</a>
-        <a href="../../index.html">Blogs</a>
-        <a href="#">CTF</a>
-      </nav>
-    </div>
-  </header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="../../css/poststyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;700;800&family=Oswald:wght@400;500;700&family=Noto+Sans+JP:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-
-  <main class="blog-container">
-    <header class="post-header">
-      <div class="post-type">Blog</div> 
-      <h1 class="post-title">Global Cybersecurity Camp 2025</h1>
-      <div class="post-date">
-        <span class="icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="icon icon-tabler-calendar-week"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
-            <path d="M16 3v4" />
-            <path d="M8 3v4" />
-            <path d="M4 11h16" />
-            <path d="M7 14h.013" />
-            <path d="M10.01 14h.005" />
-            <path d="M13.01 14h.005" />
-            <path d="M16.015 14h.005" />
-            <path d="M13.015 17h.005" />
-            <path d="M7.01 17h.005" />
-            <path d="M10.01 17h.005" />
-          </svg>
-        </span>
-        <small>21 February 2025</small>
-      </div>
-    </header>
-    <div class="post-image">
-      <img src="GroupPhoto.jpg" alt="GroupPhoto" />
+    <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  </head>
+  <body>
+     <!-- SVG Noise -->
+    <div class="absolute inset-0 z-50 pointer-events-none" style="position: fixed; top:0; left:0; width:100%; height:100%; opacity: 0.06; mix-blend-mode: overlay;">
+      <svg width="100%" height="100%">
+        <filter id="noise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noise)" />
+      </svg>
     </div>
 
-    <article class="post-body">
-      <p>
-        Earlier this year I had the privilege of attending the Global Cybersecurity Camp (GCC) 2025
-        in Taiwan—a week-long gathering of the top students from around the world, all passionate
-        about building a safer digital future. Hosted in a different country each year, GCC brings
-        together next-generation cybersecurity leaders to learn from industry experts, work on
-        real-world problems, and forge lifelong connections.
-      </p>
+    <div class="page-wrapper">
+        
+        <header class="blog-header">
+            <a href="../../index.html" class="header-title">
+                <span class="h-main">solaris0141</span>
+                <span class="h-div">//</span>
+                <span class="h-sub">Blogs & Writeups</span>
+            </a>
+            <a href="../../index.html" class="header-jp">ソラリス</a>
+        </header>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Day 0 — Arrival & Ice-Breaking</h2>
-      </section>
+        <main class="article-container">
+            <article class="article-main">
+                <h1 class="article-title">GLOBAL CYBERSECURITY CAMP 2025</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item"><span>DATE:</span><span style="color: var(--c-white);">2025-02-21</span></div>
+                    <div class="meta-item"><span>//</span></div>
+                    <div class="meta-item"><span>CATEGORY:</span><span style="color: #4ade80;">BLOG</span></div>
+                    <div class="meta-item"><span>//</span></div>
+                    <div class="meta-item"><span>TAGS:</span><span style="color: var(--c-white);">CONFERENCE, TAIWAN</span></div>
+                </div>
 
-      
-      <p>
-        After a quick check-in at the hotel, everyone gathered for an evening
-        ice-breaking party in the hotel cafe. I was placed on a team with representatives from four other countries,
-        and over games and snacks we swapped stories of local CTF scenes, our favorite tools, and
-        expectations for the week ahead.
-      </p>
+                <img src="GroupPhoto.jpg" class="article-hero-img full" alt="GCC Group Photo">
 
-      <figure class="figure">
-        <img
-          src="Day0-Night.jpg"
-          alt="Ice Breaking Party"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          Ice Breaking Party
-        </figcaption>
-      </figure>
-      
-      <figure class="figure">
-        <img
-          src="Day0-Introduction.jpg"
-          alt="Introductions"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          My Introduction during the Ice Breaking Party
-        </figcaption>
-      </figure>
+                <div class="mobile-toc">
+                    <span class="sidebar-title">NAVIGATION_INDEX</span>
+                    <nav class="toc-list">
+                        <a href="#day-0" class="toc-link">01 // Day 0: Arrival</a>
+                        <a href="#day-1" class="toc-link">02 // Day 1: Threat Intel</a>
+                        <a href="#day-2" class="toc-link">03 // Day 2: Malware RE</a>
+                        <a href="#day-3" class="toc-link">04 // Day 3: OT Security</a>
+                        <a href="#day-4" class="toc-link">05 // Day 4: Kernel/Auto</a>
+                        <a href="#day-5" class="toc-link">06 // Day 5: Presentation</a>
+                        <a href="#day-6" class="toc-link">07 // Day 6: Farewell</a>
+                    </nav>
+                </div>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Day 1 — Threat Intelligence and Code Sanitizers</h2>
-      </section>
-      
-      <p>
-        We kicked off the morning with a welcome breakfast followed by opening remarks from
-        the GCC organizers. After the welcoming remarks, the organisers introduced each group project title and drew lots to 
-        decide which group would be tasked with which group project title. And of course, my group drew the topic <strong>"Quantum Security"</strong>. 
-        The first technical session was an introduction to threat modelling, led by Donovan Cheah, where we mapped out 
-        attack trees for common web app flaws using Threat Dragon. Lunch took me a while as I was trying to scope out the whole 
-        building to know where are the good food located at (there indeed was great food). Lunch session was very warming with 
-        everyone in my group trying to get to know each other especially crucial in determining our roles in the upcoming group work. 
-        The workshop in the afternoon was writing a code sanitizer by Mikihito Matsuura. I was nevertheless surprised by the fact that it was more related to binary exploitation concepts such as ways to write code which detects for UAF (Use After Free) and Double Free. The rest of the
-        day after dinner was spent on planning our BB84 simulation and dividing up roles.
-      </p>
+                <div class="article-content">
+                    <p>Earlier this year I had the privilege of attending the Global Cybersecurity Camp (GCC) 2025 in Taiwan—a week-long gathering of the top students from around the world, all passionate about building a safer digital future. Hosted in a different country each year, GCC brings together next-generation cybersecurity leaders to learn from industry experts, work on real-world problems, and forge lifelong connections.</p>
 
+                    <h2 id="day-0">Day 0 — Arrival & Ice-Breaking</h2>
+                    <p>After a quick check-in at the hotel, everyone gathered for an evening ice-breaking party in the hotel cafe. I was placed on a team with representatives from four other countries, and over games and snacks we swapped stories of local CTF scenes, our favorite tools, and expectations for the week ahead.</p>
+                    
+                    <img src="Day0-Night.jpg" alt="Ice Breaking Party" style="width: 100%; border: 1px solid var(--c-slate); margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.8rem; color: var(--c-slate); display: block; margin-bottom: 2rem;">// ICE BREAKING PARTY</span>
 
-      <figure class="figure">
-        <img
-          src="Day1-GroupWork.jpg"
-          alt="Group Work"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          Introduction to the Titles for Group Work
-        </figcaption>
-      </figure>
+                    <img src="Day0-Introduction.jpg" alt="Introductions" style="width: 100%; border: 1px solid var(--c-slate); margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.8rem; color: var(--c-slate); display: block; margin-bottom: 2rem;">// SELF INTRODUCTION</span>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Day 2 — Reverse Engineering Malware</h2>
-      </section>
+                    <h2 id="day-1">Day 1 — Threat Intelligence and Code Sanitizers</h2>
+                    <p>We kicked off the morning with a welcome breakfast followed by opening remarks from the GCC organizers. After the welcoming remarks, the organisers introduced each group project title and drew lots to decide which group would be tasked with which group project title.</p>
+                    <p>And of course, my group drew the topic <strong>"Quantum Security"</strong>.</p>
+                    <p>The first technical session was an introduction to threat modelling, led by Donovan Cheah, where we mapped out attack trees for common web app flaws using Threat Dragon. Lunch took me a while as I was trying to scope out the whole building to know where are the good food located at (there indeed was great food). Lunch session was very warming with everyone in my group trying to get to know each other especially crucial in determining our roles in the upcoming group work.</p>
+                    <p>The workshop in the afternoon was writing a code sanitizer by Mikihito Matsuura. I was nevertheless surprised by the fact that it was more related to binary exploitation concepts such as ways to write code which detects for UAF (Use After Free) and Double Free. The rest of the day after dinner was spent on planning our BB84 simulation and dividing up roles.</p>
+                    
+                    <img src="Day1-GroupWork.jpg" alt="Group Work" style="width: 100%; border: 1px solid var(--c-slate); margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.8rem; color: var(--c-slate); display: block; margin-bottom: 2rem;">// GROUP WORK BRIEFING</span>
 
-      
-      <p>
-        Hiroshi Suzuki & Naoki Takayama led an intensive lab on reversing C++
-        malware with IDA and semi-automated scripting. We got to learn to use a much
-        unconventional way in reversing class objects and methods. 
-      </p>
+                    <h2 id="day-2">Day 2 — Reverse Engineering Malware</h2>
+                    <p>Hiroshi Suzuki & Naoki Takayama led an intensive lab on reversing C++ malware with IDA and semi-automated scripting. We got to learn to use a much unconventional way in reversing class objects and methods.</p>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Day 3 — OT Security & Threat Intelligence</h2>
-      </section>
+                    <h2 id="day-3">Day 3 — OT Security & Threat Intelligence</h2>
+                    <p>The morning session by Vic Huang & Sol Yang dove deep into operational technology (OT) attacks—think SCADA, industrial controllers, and the unique challenges of embedded firmware. After lunch, Tomohisa Ishikawa introduced a workflow for integrated threat intelligence: ingesting OSINT feeds, correlating IoCs, and feeding custom rules into a live SIEM.</p>
 
-      
-      <p>
-        The morning session by Vic Huang & Sol Yang dove deep into operational
-        technology (OT) attacks—think SCADA, industrial controllers, and the unique
-        challenges of embedded firmware. After lunch, Tomohisa Ishikawa introduced
-        a workflow for integrated threat intelligence: ingesting OSINT feeds,
-        correlating IoCs, and feeding custom rules into a live SIEM.
-      </p>
+                    <h2 id="day-4">Day 4 — Kernel Exploitation & Automotive Hacking</h2>
+                    <p>In the morning, Cherie-Anne Lee opened with a crash course on modern Linux kernel exploits such as dirty pipes by demonstrating the CTF challenges she has created in the past. Then Kamel Ghali showed us how to break into CAN-bus networks in cars and especially to understand which part of the CAN dump should we focus on for certain information about the car.</p>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Day 4 — Kernel Exploitation & Automotive Hacking</h2>
-      </section>
+                    <h2 id="day-5">Day 5 — Groupwork Showcase & City Tour</h2>
+                    <p>Presentation day! My team demonstrated our <em>BB84 quantum key distribution</em> simulation made using WebSockets as our “quantum channel” and a manual man-in-the-middle script to show why any interception breaks the protocol. The judges loved the live demo. Afterwards, the camp took us on a group tour up Taipei 101 for the rest of the afternoon.</p>
 
-      
-      <p>
-        In the morning, Cherie-Anne Lee opened with a crash course on modern Linux kernel exploits
-        such as dirty pipes by demonstrating the CTF challenges she has created in the past. Then 
-        Kamel Ghali showed us how to break into CAN-bus networks in cars and especially to understand
-        which part of the CAN dump should we focus on for certain information about the car. 
-      </p>
+                    <img src="Day5-Presentation.jpg" alt="Group Work Presentation" style="width: 100%; border: 1px solid var(--c-slate); margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.8rem; color: var(--c-slate); display: block; margin-bottom: 2rem;">// PRESENTATION TIME</span>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Day 5 — Groupwork Showcase & City Tour</h2>
-      </section>
+                    <img src="Day5-Tour101.jpg" alt="Taipei 101" style="width: 100%; border: 1px solid var(--c-slate); margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.8rem; color: var(--c-slate); display: block; margin-bottom: 2rem;">// TAIPEI 101</span>
 
-      
-      <p>
-        Presentation day! My team demonstrated our <em>BB84 quantum key distribution</em>
-        simulation made using WebSockets as our “quantum channel” and a manual
-        man-in-the-middle script to show why any interception breaks the protocol.
-        The judges loved the live demo. Afterwards, the camp took us on a group
-        tour up Taipei 101 for the rest of the afternoon.
-      </p>
+                    <h2 id="day-6">Day 6 — Farewell Day</h2>
+                    <p>With our flight booked for late evening, we wandered around Taipei’s cityscape and went to various museums and spots that were on our todo list. It was the perfect coda to a week of intense learning and incredible new friendships. Here are some really random photos I took of the cityscape.</p>
 
-      <figure class="figure">
-        <img
-          src="Day5-Presentation.jpg"
-          alt="Group Work Presentation"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          Presentation for our Group Work
-        </figcaption>
-      </figure>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <img src="Day6-Street.jpg" alt="Taipei Street" style="width: 100%; border: 1px solid var(--c-slate); margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.8rem; color: var(--c-slate); display: block;">// STREETS OF TAIPEI</span>
+                        </div>
+                        <div>
+                            <img src="Day6-Bank.jpg" alt="Land Bank" style="width: 100%; border: 1px solid var(--c-slate); margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.8rem; color: var(--c-slate); display: block;">// COOL BANK</span>
+                        </div>
+                    </div>
 
-      <figure class="figure">
-        <img
-          src="Day5-Tour101.jpg"
-          alt="Taipei 101"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          City Tour to Taipei 101
-        </figcaption>
-      </figure>
+                    <h2 id="afterwords">Afterwords</h2>
+                    <div class="callout callout-quote">
+                        <div class="callout-title">CLOSING THOUGHTS</div>
+                        <div class="callout-content">
+                            GCC 2025 Taiwan was more than a conference, it was a place for curating ideas, a playground for curious minds, and a global community I’m proud to be part of. It built my confidence in topics that I would never have thought to break into it myself.<br><br>
+                            Big thank you to <strong>SherpaSec</strong> and <strong>Cyberwise</strong> for their sponsor and support, especially putting the trust into us for representing Malaysia in such a grandiose event. Looking forward to seeing how Vietnam will host for GCC 2026!
+                        </div>
+                    </div>
+                </div>
+            </article>
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- bolt -->
-              <svg xmlns="http://www.w3.org/2000/svg"
-                  width="32" height="32"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="icon icon-tabler icon-tabler-filled icon-tabler-bolt">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"/>
-              </svg>
-          </div>
-          <h2>Day 6 — Farewell Day</h2>
-      </section>
+            <aside class="sidebar">
+                <div class="sidebar-box toc-box">
+                    <span class="sidebar-title">NAVIGATION_INDEX</span>
+                    <nav class="toc-list">
+                        <a href="#day-0" class="toc-link">01 // Day 0: Arrival</a>
+                        <a href="#day-1" class="toc-link">02 // Day 1: Threat Intel</a>
+                        <a href="#day-2" class="toc-link">03 // Day 2: Malware RE</a>
+                        <a href="#day-3" class="toc-link">04 // Day 3: OT Security</a>
+                        <a href="#day-4" class="toc-link">05 // Day 4: Kernel/Auto</a>
+                        <a href="#day-5" class="toc-link">06 // Day 5: Presentation</a>
+                        <a href="#day-6" class="toc-link">07 // Day 6: Farewell</a>
+                    </nav>
+                </div>
 
-      
-      <p>
-        With our flight booked for late evening, we wandered around Taipei’s cityscape 
-        and went to various museums and spots that were on our todo list. It was the 
-        perfect coda to a week of intense learning and incredible new friendships. Here
-        are some really random photos I took of the cityscape. 
-      </p>
-      <figure class="figure">
-        <img
-          src="Day6-Street.jpg"
-          alt="Taipei Street"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          Streets of Taipei
-        </figcaption>
-      </figure>
+                <div class="sidebar-box">
+                    <span class="sidebar-title">AUTHOR</span>
+                    <div class="id-container">
+                        <div class="id-logo">
+                            <span class="id-text">SOLARIS</span><span class="id-num">0141</span>
+                        </div>
+                        <div class="id-bottom">
+                            <span class="id-jp">ソラリス</span>
+                            <a href="https://github.com/solaris0141" target="_blank" class="id-social" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
 
-      <figure class="figure">
-        <img
-          src="Day6-Bank.jpg"
-          alt="Land Bank"
-          class="figure-image"
-        />
-        <figcaption class="figure-caption">
-          Cool Bank
-        </figcaption>
-      </figure>
+        <footer class="simple-footer">
+            <div>© 2026 SOLARIS0141 // ALL RIGHTS RESERVED</div>
+            <div>END_OF_POST</div>
+        </footer>
+    </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const MAX_HEIGHT = 300;
+            const codeBlocks = document.querySelectorAll('code[data-src]');
 
+            codeBlocks.forEach(async (block) => {
+                const url = block.getAttribute('data-src');
+                const pre = block.parentElement; 
+                const wrapper = pre.parentElement;
 
-      <section class="section-heading">
-          <div class="section-icon"> <!-- coffee -->
-              <svg  xmlns="http://www.w3.org/2000/svg"  
-              width="24"  height="24"  
-              viewBox="0 0 24 24"  
-              fill="none"  stroke="currentColor"  
-              stroke-width="2"  stroke-linecap="round"  
-              stroke-linejoin="round"  
-              class="icon icon-tabler icons-tabler-outline icon-tabler-coffee">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M3 14c.83 .642 2.077 1.017 3.5 1c1.423 .017 2.67 -.358 3.5 -1c.83 -.642 2.077 -1.017 3.5 -1c1.423 -.017 2.67 .358 3.5 1" />
-              <path d="M8 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2" />
-              <path d="M12 3a2.4 2.4 0 0 0 -1 2a2.4 2.4 0 0 0 1 2" />
-              <path d="M3 10h14v5a6 6 0 0 1 -6 6h-2a6 6 0 0 1 -6 -6v-5z" />
-              <path d="M16.746 16.726a3 3 0 1 0 .252 -5.555" />
-              </svg>
-          </div>
-          <h2>Afterwords</h2>
-      </section>
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error(`Status: ${response.status}`);
+                    const text = await response.text();
+                    block.textContent = text;
+                    if (window.hljs) hljs.highlightElement(block);
 
-      
-      <p>
-        GCC 2025 Taiwan was more than a conference, it was a place for curating ideas,
-        a playground for curious minds, and a global community I’m proud to be part of. It
-        built my confidence in topics that I would never have thought to break into it myself.
-        Big thank you to <strong>SherpaSec</strong> and <strong>Cyberwise</strong> for their sponsor 
-        and support, especially putting the trust into us for representing Malaysia in such a grandiose 
-        event. Looking forward to seeing how Vietnam will host for GCC 2026!
-      </p>
+                    setTimeout(() => {
+                        if (pre.scrollHeight > MAX_HEIGHT) {
+                            wrapper.classList.add('collapsed');
+                            const btn = document.createElement('button');
+                            btn.className = 'code-expand-btn';
+                            btn.innerText = 'EXPAND_SOURCE //';
+                            btn.addEventListener('click', () => {
+                                wrapper.classList.remove('collapsed');
+                                btn.remove();
+                            });
+                            wrapper.appendChild(btn);
+                        }
+                    }, 50);
+                } catch (error) {
+                    block.textContent = `// Error loading code from: ${url}\n// ${error.message}`;
+                    console.error("Fetch error:", error);
+                }
+            });
+        });
 
-    </article>
-  </main>
-  <script src="../../js/blogpage.js" defer></script>
-</body>
+        function copyCode(btn) {
+            const wrapper = btn.closest('.code-wrapper');
+            const pre = wrapper.querySelector('pre');
+            const code = pre.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = "COPIED!";
+                btn.style.borderColor = "#4ade80";
+                btn.style.color = "#4ade80";
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.borderColor = "";
+                    btn.style.color = "";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+  </body>
 </html>
-

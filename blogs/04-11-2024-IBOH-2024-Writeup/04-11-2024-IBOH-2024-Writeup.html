@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Solaris0141 | IBOH CTF 2024 Writeup</title>
+
+    <!-- Highlight.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/poststyles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;700;800&family=Oswald:wght@400;500;700&family=Noto+Sans+JP:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- MathJax -->
+    <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  </head>
+  <body>
+     <!-- SVG Noise -->
+    <div class="absolute inset-0 z-50 pointer-events-none" style="position: fixed; top:0; left:0; width:100%; height:100%; opacity: 0.06; mix-blend-mode: overlay;">
+      <svg width="100%" height="100%">
+        <filter id="noise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noise)" />
+      </svg>
+    </div>
+
+    <div class="page-wrapper">
+        
+        <!-- HEADER -->
+        <header class="blog-header">
+            <a href="../../index.html" class="header-title">
+                <span class="h-main">solaris0141</span>
+                <span class="h-div">//</span>
+                <span class="h-sub">Blogs & Writeups</span>
+            </a>
+            <a href="../../index.html" class="header-jp">ソラリス</a>
+        </header>
+
+        <main class="article-container">
+            <article class="article-main">
+                <h1 class="article-title">INTERNATIONAL BATTLE OF HACKERS 2024 WRITEUP</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item"><span>DATE:</span><span style="color: var(--c-white);">2024-11-04</span></div>
+                    <div class="meta-item"><span>//</span></div>
+                    <div class="meta-item"><span>CATEGORY:</span><span style="color: #4ade80;">WRITEUP</span></div>
+                    <div class="meta-item"><span>//</span></div>
+                    <div class="meta-item"><span>TAGS:</span><span style="color: var(--c-white);">CRYPTO, CTF</span></div>
+                </div>
+
+                <img src="Banner.jpg" class="article-hero-img" alt="IBOH Banner">
+
+                <!-- Mobile TOC -->
+                <div class="mobile-toc">
+                    <span class="sidebar-title">NAVIGATION_INDEX</span>
+                    <nav class="toc-list">
+                        <a href="#chall-1" class="toc-link">01 // Grüß Gott!</a>
+                        <a href="#chall-2" class="toc-link">02 // I'll Kill Yall</a>
+                        <a href="#chall-3" class="toc-link">03 // Old MacData</a>
+                        <a href="#chall-4" class="toc-link">04 // The Plan</a>
+                        <a href="#chall-5" class="toc-link">05 // The Detonation</a>
+                        <a href="#chall-6" class="toc-link">06 // The Escape</a>
+                    </nav>
+                </div>
+
+                <div class="article-content">
+                    <p> 
+                        This event was hosted by the FSEC club and I had the opportunity to create and present 6 of my challenges to the players for this CTF. I have tried my best to make the challenges as interesting as possible but I think one unsurprising factor was that only 1 person solved 1 of my 6 challenges so I guess there just isn't much people interested in learning more about cryptography.
+                    </p>
+                    <p>
+                        I was actually a bit unsatisfied with how I made my challenges after the event. As I put myself in the player's perspective, I don't think I would have enjoyed much from my own challenge simply because there isn't really the "interesting" factor implemented in it except just using known theories. Nevertheless, I am writing this writeup to hopefully encourage more people to try pivoting themselves more into the category of cryptography. 
+                    </p>
+
+                    <!-- CHALLENGE 1 -->
+                    <h2 id="chall-1">Grüß Gott!</h2>
+                    <p>This challenge was made by my friend which was an interesting C++ code of the enigma machine</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">C++ // CHALL.CPP</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-cpp" data-src="crypto_Grubb-Gott/chall.cpp"></code></pre>
+                    </div>
+
+                    <h3>Solution</h3>
+                    <p>
+                        Well first of all, Enigma is actually quite simple to reverse so I just threw it to ChatGPT to generate the reverse script for me. Now the important part is actually on this two line:
+                    </p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">C++ // SNIPPET</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-cpp">int n[6] = {1, 2, 3, 4, 5, 6 }; // just example</code></pre>
+                    </div>
+
+                    <p>and</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">C++ // SNIPPET</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-cpp">if(code%2==0)   code++;else code--;  // Reflector: if even, add 1; if odd, subtract 1.</code></pre>
+                    </div>
+
+                    <p>
+                        Essentially, the encryption is based on the values of the rotors, which consist of 6 integers from 1 to 26. By going the brute-forcing way, it would mean about $26^6$ amount of tries needed, which can be a hassle. Looking closely at the code again, it can be realised that the rotors value are actually determined by odd and even integers, so technically we are just brute forcing $2^6$ which is way faster than before by a significant amount.
+                    </p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">PYTHON // SOL.PY</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-python" data-src="crypto_Grubb-Gott/sol.py"></code></pre>
+                    </div>
+
+                    <div class="callout callout-flag">
+                        <div class="callout-title">FLAG ACQUIRED</div>
+                        <div class="callout-content">IBOH24{thisflaglookslikeenigma}</div>
+                    </div>
+
+
+                    <!-- CHALLENGE 2 -->
+                    <h2 id="chall-2">I'll Kill Yall</h2>
+                    <p>
+                        This is the Zodiac Killer Cipher based on the Z408 cryptogram. The tricky part about this is that the image given to us is actually cropped out in the hex and we have to edit the height in hex to view the full image.
+                    </p>
+
+                    <img src="crypto_ill-kill-yall/fixed.png" alt="Fixed Zodiac Image" class="article-hero-img" style="height: auto;">
+
+                    <h3>Solution</h3>
+                    <p>
+                        Now we can just put this into the Zodiac Cipher decoder on dcode.fr to solve for this challenge.
+                    </p>
+
+                    <div class="callout callout-quote">
+                        <div class="callout-content">ILIKETOKILLPEOPLECANUFINDMEOUTHAHATHISISTHEFLAGKILLINGPEOPLEEZAFSTOPME</div>
+                    </div>
+
+                    <div class="callout callout-flag">
+                        <div class="callout-title">FLAG ACQUIRED</div>
+                        <div class="callout-content">IBOH24{KILLINGPEOPLEEZAF}</div>
+                    </div>
+
+
+                    <!-- CHALLENGE 3 -->
+                    <h2 id="chall-3">Old MacData Had a Spy, E-I-E-I-O</h2>
+                    <img src="crypto_Old-MacData-Had-a-Spy/oldmac1.png" alt="Full Sheet Music" class="article-hero-img" style="height: auto;">
+
+                    <p>
+                        Based on the sheet music, we can see that a certain part of the bass side has some suspicious notes. Starting from the 3rd bar to the 9th bar, the bass side weirdly became quavers and only plays A and B only. This should obviously indicates that it's the Baconian Cipher. Taking a closer look, we can even see these small little characters on top of the eigth rests.
+                    </p>
+
+                    <img src="crypto_Old-MacData-Had-a-Spy/oldmac2.png" alt="Zoomed In Sheet Music" class="article-hero-img" style="height: auto;">
+
+                    <p>
+                        Decoding the Baconian cipher and putting the characters in between the intended characters, we will get a shortened URL (bitly) which links us to the a drive file that has the flag in a comment.
+                    </p>
+
+                    <div class="callout callout-quote">
+                        <div class="callout-content">BIT.LY/8XLM9CS</div>
+                    </div>
+
+                    <img src="crypto_Old-MacData-Had-a-Spy/oldmac3.png" alt="Drive File Flag" class="article-hero-img" style="height: auto;">
+
+                    <div class="callout callout-flag">
+                        <div class="callout-title">FLAG ACQUIRED</div>
+                        <div class="callout-content">IBOH24{3xf1ltr4ted_by_M()s1cal_B4c0n}</div>
+                    </div>
+
+
+                    <!-- CHALLENGE 4 -->
+                    <h2 id="chall-4">The Plan</h2>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">PYTHON // SERVER.PY</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-python" data-src="crypto_The-Plan/server.py"></code></pre>
+                    </div>
+
+                    <p>
+                        If we look closely at the key generation, we can see that this is the implementation of the Okamoto-Uchiyama cryptosystem, with a slight twist in the program. We are only allowed to encrypt any input once, decrypt any input once and view the encrypted log. Another added twist was that the assert function to check for log corruption was commented, meaning we can technically corrupt the encryption process by giving an input larger than $p$.
+                    </p>
+                    <p>
+                        The initial thought for this challenge was that it's as simple as just viewing the encrypted log, and throw it into the decrypt function, wouldn't we just get our flag back like that? And as expected, it returned bunch of weird bytes back, this instantly indicates that the log must have been larger than $p$. There's also this session key value that is given to us as well which is basically the key for us to fix the log corruption issue.
+                    </p>
+
+                    <p>$$ plaintext = (sessionkey - p - q)p + enc $$</p>
+
+                    <p>
+                        This would mean that we need to somehow obtain the values of p and q in some other way, which can be exploited through the encrypt and decrypt functions.
+                    </p>
+
+                    <h3>Solution</h3>
+                    <p>
+                        The basic idea is that we will send an input $s$ to the encrypt function that is larger than $N^{1/2}$ to get the encrypted input $enc$, since the program won't assert it meaning it's perfectly fine to do so. Using the fact that it's going to be corrupted, meaning if we were to send $enc$ to be decrypted, it will return us something other than $s$, which we will name it $sp$. Now, the plaintext that we should have received from the decrypt function should have been equal to our initial input, but since it isn't, we can just gcd the difference and obtain the value $p$.
+                    </p>
+
+                    <p>$$ sp \equiv s \mod p $$</p>
+                    <p>$$ sp - s \equiv 0 \mod p $$</p>
+                    <p>$$ gcd(sp - s, n) = p $$</p>
+                    <p>$$ q = N/p^2 $$</p>
+
+                    <p>
+                        Now we can calculate for the multiplier with session key and just manually decrypt the log with the $p$ value we obtained.
+                    </p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">PYTHON // SOL.PY</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-python" data-src="crypto_The-Plan/sol.py"></code></pre>
+                    </div>
+
+                    <p>The actual decrypted log we will see is</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">TEXT // DEC.txt</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-plaintext" data-src="crypto_The-Plan/dec.txt"></code></pre>
+                    </div>
+
+                    <div class="callout callout-flag">
+                        <div class="callout-title">FLAG ACQUIRED</div>
+                        <div class="callout-content">IBOH24{7h1s_1s_t0t4lly_OUt_of_R@NG3:_0k4m0tO_s4yS_C4lm1y_86eef5528c8557609ff5bf0859c9554c}</div>
+                    </div>
+
+
+                    <!-- CHALLENGE 5 -->
+                    <h2 id="chall-5">The Detonation</h2>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">PYTHON // CHALL.PY</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-python" data-src="crypto_The-Detonation/chall.py"></code></pre>
+                    </div>
+
+                    <p>
+                        Looking at the source code, we can see that this is an implementation of the Linear Congruential Generator (LCG) which will be used to generate the 20 pseudorandom numbers that we have to guess accurately to "defuse" the bomb. We are given the seed initially and also the first 3 sequence of numbers, which is more than enough for us to calculate the constants in the generator.
+                    </p>
+
+                    <h3>Solution</h3>
+                    <p>LCG follow the form of:</p>
+                    <p>$$ a_{s+1} \equiv a_sm + c \mod n $$</p>
+
+                    <p>for $s$ is the index of sequence meaning the value of $a$ for $s = 0$ is the seed.</p>
+
+                    <p>$$ a_1 \equiv a_0m + c \mod n $$</p>
+                    <p>$$ a_2 \equiv a_1m + c \mod n $$</p>
+                    <p>$$ a_3 \equiv a_2m + c \mod n $$</p>
+
+                    <p>We have the $a$ values for $s \in \set{ 0,1,2,3 } $, so this means we can obtain the $n$ like this:</p>
+
+                    <p>$$ a_3 - a_2 \equiv (a_2 - a_1)m \mod n $$</p>
+                    <p>$$ a_2 - a_1 \equiv (a_1 - a_0)m \mod n $$</p>
+                    <p>$$ (a_3 - a_2)(a_1 - a_0)m \equiv (a_2 - a_1)^2 m \mod n $$</p>
+                    <p>$$ (a_3 - a_2)(a_1 - a_0)(a_2 - a_1)^{-2} \equiv  0 \mod n $$</p>
+
+                    <p>
+                        Now we can just reconnect to the server and fail the defuse again just to get another set of 4 values, then use gcd to get the value of $n$.
+                        After recovering $n$, calculating the values of $m$ and $c$ is just simple enough for us to do.
+                    </p>
+
+                    <p>$$ a_2 - a_1 \equiv (a_1 - a_0)m \mod n $$</p>
+                    <p>$$ (a_2 - a_1)(a_1 - a_0)^{-1} \equiv m \mod n $$</p>
+
+                    <p>For $c$:</p>
+
+                    <p>$$ a_1 \equiv a_0m + c \mod n $$</p>
+                    <p>$$ a_1 - a_0m \equiv c \mod n $$</p>
+
+                    <p>
+                        So now after we obtained all the constants, we can just reconnect to the server and calculate all 20 sequences of the random numbers generated by the LCG thus defusing the bomb.
+                    </p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">PYTHON // SOL.SAGE</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-python" data-src="crypto_The-Detonation/sol.sage"></code></pre>
+                    </div>
+
+                    <div class="callout callout-flag">
+                        <div class="callout-title">FLAG ACQUIRED</div>
+                        <div class="callout-content">IBOH24{B0mb_H4s_B33n_d3fuS3d_Y0u_W1n_b5c65cc98a4fac0948b5520fbf39cd18}</div>
+                    </div>
+
+
+                    <!-- CHALLENGE 6 -->
+                    <h2 id="chall-6">The Escape</h2>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">PYTHON // CHALL.PY</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-python" data-src="crypto_The-Escape/chall.py"></code></pre>
+                    </div>
+
+                    <p>
+                        This is an implementation of the Schnorr Digital Signature Scheme and it seems that the nonce used for generating the signatures are close enough meaning we can use LLL to properly reduce our matrix to get the basis that's close enough to the vector which we want.
+                    </p>
+
+                    <h3>Solution</h3>
+                    <p>The signature $(r,s)$ is generated by:</p>
+                    <p>$$ s \equiv k - xe \mod n-1 $$</p>
+                    <p>$$ r \equiv g^x \mod n$$</p>
+
+                    <p>where $g \in \set{2,...,n-1}$, $e = H(message \parallel r)$, $x$ is our private key and $k$ is the nonce.</p>
+                    <p>
+                        A total of 4 signatures are signed where each two of the signatures have close nonces. We can rearrange the equations to a basis for then LLL can be used to reduce the matrix and solve the combinatorial problem. We need to find the private key value $x$ to be able to decrypt the AES CBC. For the IV if you simplify the equation $(k_1k_3)-(k_2k_1)+(k_2k_0)-(k_0k_3)$ properly it's actually just $(k_1-k_0)(k_3-k_2)$.
+                    </p>
+
+                    <p>$$ s_0 \equiv k_0 - xe_0 \mod n-1 $$</p>
+                    <p>$$ s_1 \equiv k_1 - xe_1 \mod n-1 $$</p>
+
+                    <p>
+                        We can use the fact that k1 and k0 shares the same 10 bytes in LSB, meaning we can just substract them to be left with only the 8 bytes of MSB. And this also works in our favour since we need their substracted value for calculating our IV. Let's assume that $k_1-k_0 = k_{10}$, now we can reqrite the equations as
+                    </p>
+
+                    <p>$$ s_1 - s_0 \equiv k_{10} -x(e_1 - e_0) \mod n-1 $$</p>
+                    <p>$$ (s_1 - s_0) + x(e_1 - e_0) - k_{10} + d(n-1) = 0 $$</p>
+
+                    <p>
+                        Now we can apply this to $s_3$ and $s_2$ as well and start forming the lattice for LLL.
+                        Basically we are just going to assume that there will be a vector $[A, B, C, D, E, F]$ which exist in the lattice below.
+                    </p>
+
+                    <div class="callout callout-hint">
+                        <div class="callout-title">TIP</div>
+                        <div class="callout-content">The dimension of our vector is equal to the size of the column of the lattice so adjust the matrix based on what dimension the vector is going to be</div>
+                    </div>
+
+                    <p>
+                    $$
+                    \begin{bmatrix}
+                    1 & 0 & 0 & 0 & s_1 - s_0 & s_3 - s_2 \\
+                    0 & 1 & 0 & 0 & e_1 - e_0 & e_3 - e_2 \\
+                    0 & 0 & 1 & 0 & 2^{80} & 0 \\
+                    0 & 0 & 0 & 1 & 0 & 2^{80} \\
+                    0 & 0 & 0 & 0 & n-1 & 0 \\
+                    0 & 0 & 0 & 0 & 0 & n-1 \\
+                    \end{bmatrix}
+                    $$
+                    </p>
+
+                    <p>where $A = 1$, $B = x$, $C = k_{10}$, $D = k_{32}$, $E = 0$, $F = 0$</p>
+
+                    <p>In a way we can essentially think that LLL is just a way to solve a system of equations by reduction as shown below</p>
+
+                    <p>
+                    $$ 
+                    A\begin{bmatrix} 1 \cr 0 \cr 0 \cr 0 \cr s_1 - s_0 \cr s_3 - s_2 \end{bmatrix} + 
+                    B\begin{bmatrix} 0 \cr 1 \cr 0 \cr 0 \cr e_1 - e_0 \cr e_3 - e_2 \end{bmatrix} + 
+                    C\begin{bmatrix} 0 \cr 0 \cr 1 \cr 0 \cr 2^{80} \cr 0 \end{bmatrix} + 
+                    D\begin{bmatrix} 0 \cr 0 \cr 0 \cr 1 \cr 0 \cr 2^{80} \end{bmatrix} + 
+                    E\begin{bmatrix} 0 \cr 0 \cr 0 \cr 0 \cr n-1 \cr 0 \end{bmatrix} + 
+                    F\begin{bmatrix} 0 \cr 0 \cr 0 \cr 0 \cr 0 \cr n-1 \end{bmatrix}
+                    = 0
+                    $$
+                    </p>
+
+                    <p>
+                        And since we know approximately the size of our target values, this just seems like a CVP (Closest Vector Problem) and we can utilize Babai's Nearest Plane Algorithm to find the nearest vector to our target values. We can just set our target vector be $[1,\frac{n-1}{2},-2^{64}, -2^{64}, 0, 0]$ and run Babai's algorithm.
+                    </p>
+
+                    <div class="callout callout-hint">
+                        <div class="callout-title">NOTE</div>
+                        <div class="callout-content">There's not much info on the size of x so it's safest to approximate it at half of p-1</div>
+                    </div>
+
+                    <p>
+                        Problem is that we will most likely not get the vector we want since the size we are searching for is too big, so it's much advisable that we add weight to our LLL instead to make it so that our target vector is smaller. We can scale each column of the lattice with the inverse of each value in the target vector which effectively normalises the lattice.
+                    </p>
+
+                    <p>
+                    $$
+                    \begin{bmatrix}
+                    1 & 0 & 0 & 0 & s_1 - s_0 & s_3 - s_2 \\
+                    0 & \frac{2}{p-1} & 0 & 0 & e_1 - e_0 & e_3 - e_2 \\
+                    0 & 0 & \frac{1}{2^{64}} & 0 & 2^{80} & 0 \\
+                    0 & 0 & 0 & \frac{1}{2^{64}} & 0 & 2^{80} \\
+                    0 & 0 & 0 & 0 & n-1 & 0 \\
+                    0 & 0 & 0 & 0 & 0 & n-1 \\
+                    \end{bmatrix}
+                    $$
+                    </p>
+
+                    <p>
+                        Now our target vector has been shortened to $[1,1,-1,-1,0,0]$ since we moved the weight to the lattice. This will now return us our target vector and we can just obtain all the values we needed as mentioned before:
+                    </p>
+
+                    <p>$$ x = B \cdot \frac{p-1}{2} $$</p>
+                    <p>$$ k_{10} = C \cdot -2^{64} \cdot 2^{80} $$</p>
+                    <p>$$ k_{32} = D \cdot -2^{64} \cdot 2^{80} $$</p>
+
+                    <div class="callout callout-hint">
+                        <div class="callout-title">NOTE</div>
+                        <div class="callout-content">$2^{80}$ is used in our basis because we only need to find the first 8 bytes ($2^{64}$ bits) of the nonce so we shift it by multiplying 10 bytes ($2^{80}$)</div>
+                    </div>
+
+                    <p>And now we can decrypt the AES-CBC with the obtained key and IV to get our well deserved flag.</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">PYTHON // SOL.SAGE</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+<pre><code class="language-python" data-src="crypto_The-Escape/sol.sage"></code></pre>
+                    </div>
+
+                    <div class="callout callout-flag">
+                        <div class="callout-title">FLAG ACQUIRED</div>
+                        <div class="callout-content">IBOH24{IT'S_TH3_F1N4L_C0uNTD0WNNNN_b4i_B41_be926d988e8a5a7ae2215026e14ec443}</div>
+                    </div>
+
+                </div>
+            </article>
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+                
+                <!-- TOC Box -->
+                <div class="sidebar-box toc-box">
+                    <span class="sidebar-title">NAVIGATION_INDEX</span>
+                    <nav class="toc-list">
+                        <a href="#chall-1" class="toc-link">01 // Grüß Gott!</a>
+                        <a href="#chall-2" class="toc-link">02 // I'll Kill Yall</a>
+                        <a href="#chall-3" class="toc-link">03 // Old MacData</a>
+                        <a href="#chall-4" class="toc-link">04 // The Plan</a>
+                        <a href="#chall-5" class="toc-link">05 // The Detonation</a>
+                        <a href="#chall-6" class="toc-link">06 // The Escape</a>
+                    </nav>
+                </div>
+
+                <!-- Related Box -->
+                <div class="sidebar-box">
+                    <span class="sidebar-title">AUTHOR</span>
+                    <div class="id-container">
+                        <div class="id-logo">
+                            <span class="id-text">SOLARIS</span><span class="id-num">0141</span>
+                        </div>
+                        <div class="id-bottom">
+                            <span class="id-jp">ソラリス</span>
+                            <a href="https://github.com/solaris0141" target="_blank" class="id-social" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="simple-footer">
+            <div>© 2026 SOLARIS0141 // ALL RIGHTS RESERVED</div>
+            <div>END_OF_POST</div>
+        </footer>
+
+    </div>
+
+    <!-- Script for Code Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const MAX_HEIGHT = 300;
+            const codeBlocks = document.querySelectorAll('pre code'); // Modified to target all code blocks
+
+            codeBlocks.forEach(async (block) => {
+                const pre = block.parentElement; 
+                const wrapper = pre.parentElement;
+                const url = block.getAttribute('data-src');
+
+                // If URL exists, fetch content (future proofing)
+                if (url) {
+                    try {
+                        const response = await fetch(url);
+                        if (!response.ok) throw new Error(`Status: ${response.status}`);
+                        const text = await response.text();
+                        block.textContent = text;
+                    } catch (error) {
+                        // If local fetch fails (e.g. file doesn't exist), keep existing content
+                        console.log(`Keeping inline content for ${url}`);
+                    }
+                }
+
+                // Apply Highlight
+                if (window.hljs) hljs.highlightElement(block);
+
+                // Apply Collapse Logic
+                setTimeout(() => {
+                    if (pre.scrollHeight > MAX_HEIGHT) {
+                        wrapper.classList.add('collapsed');
+                        const btn = document.createElement('button');
+                        btn.className = 'code-expand-btn';
+                        btn.innerText = 'EXPAND_SOURCE //';
+                        btn.addEventListener('click', () => {
+                            wrapper.classList.remove('collapsed');
+                            btn.remove();
+                        });
+                        wrapper.appendChild(btn);
+                    }
+                }, 50);
+            });
+        });
+
+        function copyCode(btn) {
+            const wrapper = btn.closest('.code-wrapper');
+            const pre = wrapper.querySelector('pre');
+            const code = pre.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = "COPIED!";
+                btn.style.borderColor = "#4ade80";
+                btn.style.color = "#4ade80";
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.borderColor = "";
+                    btn.style.color = "";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+  </body>
+</html>

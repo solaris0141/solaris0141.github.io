@@ -1,79 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>solaris0141 | Blog</title>
-  <link rel="stylesheet" href="css/blogmenustyle.css" />
-  <link rel="stylesheet" href="css/satoshi.css" />
-  <link rel="stylesheet" href="css/clash-display.css" />
-</head>
-<body>
-
-  <div class="sky">
-    <div class="star"></div>
-    <div class="meteor-1 meteor"></div>
-    <div class="meteor-2 meteor"></div>
-    <div class="meteor-3 meteor"></div>
-    <div class="meteor-4 meteor"></div>
-    <div class="meteor-5 meteor"></div>
-    <div class="meteor-6 meteor"></div>
-    <div class="meteor-7 meteor"></div>
-    <div class="meteor-8 meteor"></div>
-    <div class="meteor-9 meteor"></div>
-    <div class="meteor-10 meteor"></div>
-    <div class="meteor-11 meteor"></div>
-    <div class="meteor-12 meteor"></div>
-    <div class="meteor-13 meteor"></div>
-    <div class="meteor-14 meteor"></div>
-    <div class="meteor-15 meteor"></div>
-  </div>
-
-  <header class="topbar">
-    <div class="nav-container">
-      <a href="#" class="logo">solaris0141</a>
-      <button class="hamburger" aria-label="Menu">
-        <svg xmlns="http://www.w3.org/2000/svg"
-             width="24" height="24"
-             viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2"
-             stroke-linecap="round"
-             stroke-linejoin="round"
-             class="icon icon-tabler-menu">
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-          <path d="M4 8l16 0" />
-          <path d="M4 16l16 0" />
-        </svg>
-      </button>
-      <nav class="nav-links">
-        <a href="#">About</a>
-        <a href="index.html">Blogs</a>
-        <a href="#">CTF</a>
-      </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Solaris0141 | Cybersecurity Engineer</title>
+    
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;700&family=Noto+Sans+JP:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    
+    <!-- SVG Filters & Noise -->
+    <div class="noise-container">
+      <svg width="100%" height="100%">
+        <filter id="noise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noise)" />
+      </svg>
     </div>
-  </header>
 
-  <main class="blog-container">
-    <section class="hero">
-      <h1 class="hero-title">Blogs & Writeups of solaris0141</h1>
-    </section>
-    <section id="featured-post" class="featured-post"></section>
-    <section class="other-posts-header">
-      <h2>Other Posts</h2>
-    </section>
-    <section id="blog-list" class="blog-grid"></section>
-    <div id="pagination-controls" class="pagination-controls"></div>
-  </main>
+    <!-- Scrollable Wrapper -->
+    <div class="page-wrapper">
 
-  <script src="js/blogData.js"></script>
-  <script src="js/blogmenuscript.js"></script>
-  <script>
-    document.querySelector('.hamburger').addEventListener('click', () => {
-      document.querySelector('.nav-links').classList.toggle('show');
-    });
-  </script>
+        <!-- === SECTION 1: BENTO GRID === -->
+        <div class="bento-grid">
+          
+          <!-- CARD 1: Profile (Left Strip) -->
+          <a href="blogmenu.html" class="card card-profile group profile-btn-link">
+             <div class="absolute inset-0 profile-bg"></div>
+             
+             <!-- Top Info -->
+             <div class="relative z-10 flex justify-between items-start w-full">
+                <div class="flex flex-col gap-1">
+                   <span class="font-mono profile-id">ID:0141-SOL</span>
+                   <div class="profile-deco-line"></div>
+                </div>
+                <div class="profile-badge">
+                   <span class="font-mono font-bold">SEC_LEVEL_5</span>
+                </div>
+             </div>
+
+             <!-- Vertical Japanese Name -->
+             <div class="relative z-10 flex-grow flex items-center justify-center w-full">
+                <h2 class="vertical-text font-black profile-jp-name">
+                   ソラリス
+                </h2>
+             </div>
+
+             <!-- Bottom Details -->
+             <div class="relative z-10 flex flex-col gap-4 w-full">
+                <div>
+                   <h3 class="text-uc font-bold leading-none profile-heading-1">Blogs &</h3>
+                   <h3 class="text-uc font-bold leading-none profile-heading-2">Writeups</h3>
+                </div>
+                
+                <div class="flex justify-between items-end profile-footer-line">
+                   <div class="flex flex-col">
+                      <span class="font-jp font-bold profile-role-jp">サイバーセキュリティ</span>
+                      <span class="font-mono text-uc profile-role-en">Offensive // Defensive</span>
+                   </div>
+                   
+                   <!-- Status Pill -->
+                   <div class="status-pill">
+                      <span class="font-mono text-uc font-bold status-text">Online</span>
+                      <div class="ping-container">
+                        <span class="ping-ring"></span>
+                        <span class="ping-dot"></span>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </a>
+
+          <!-- CARD 2: Hero Identity (Top Right) -->
+          <header class="card card-hero">
+             <!-- Social Buttons -->
+             <div class="socials-container">
+                <a href="mailto:contact@solaris.dev" class="social-btn" aria-label="Email">
+                   <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+                <a href="https://github.com" target="_blank" class="social-btn" aria-label="GitHub">
+                   <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-btn" aria-label="LinkedIn">
+                   <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+             </div>
+
+             <!-- Main Title Area -->
+             <div class="flex flex-col justify-start flex-grow min-h-0 pt-8 hero-content">
+                <div class="flex items-center gap-3 hero-tag-row">
+                   <div class="hero-icon-box">
+                      <svg class="icon icon-sm" viewBox="0 0 24 24">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="M12 8v4"></path>
+                        <path d="M12 16h.01"></path>
+                      </svg>
+                   </div>
+                   <span class="font-mono font-bold text-uc hero-tag-text">Cryptography_Engineer</span>
+                </div>
+                
+                <!-- Flex Row for Title Stack + New SVG Arrow -->
+                <div class="hero-layout-row">
+                    <div class="hero-text-col">
+                        <h1 class="text-uc hero-title">SOLARIS0141</h1>
+                        <div class="hero-subtitle">SHUNSUKE TAN HEI</div>
+                    </div>
+                    
+                    <!-- Arrow SVG -->
+                    <svg class="hero-arrow-svg" viewBox="0 0 150 150" style="overflow: visible;">
+                        <g id="layer1" transform="translate(-43.64, -118.21)">
+                            <rect style="fill:currentColor;fill-opacity:1;fill-rule:evenodd;stroke-width:0" id="rect1" width="104.37" height="23.65" x="62.15" y="118.23"/>
+                            <rect style="fill:currentColor;fill-opacity:1;fill-rule:evenodd;stroke-width:0" id="rect2" width="148.50" height="23.65" x="-127.96" y="189.67" transform="rotate(-45)"/>
+                            <rect style="fill:currentColor;fill-opacity:1;fill-rule:evenodd;stroke-width:0" id="rect3" width="104.37" height="23.65" x="-222.58" y="-168.14" transform="matrix(0,-1,-1,0,0,0)"/>
+                        </g>
+                    </svg>
+                </div>
+             </div>
+
+             <!-- Footer Stats Row -->
+             <div class="relative grid-footer">
+                 <div>
+                    <p class="font-bold hero-desc">
+                        I am a cybersecurity engineer and software developer obsessed with secure architecture. My passion lies in cryptography, reverse engineering, and building resilient systems and inventing new communication protocols.
+                    </p>
+                 </div>
+
+                 <!-- Barcode Graphic -->
+                 <div class="footer-graphic flex justify-end">
+                    <svg viewBox="0 10 105 64" fill="none" class="barcode-svg">
+                        <style> .svg-fill { fill: #111111; } </style>
+                        <g transform="translate(-1.31, -7.61)">
+                            <rect class="svg-fill" x="12.05" y="19.49" width="1.53" height="34.16"/>
+                            <rect class="svg-fill" x="14.14" y="19.49" width="0.83" height="34.16"/>
+                            <rect class="svg-fill" x="16.11" y="19.49" width="0.92" height="34.16"/>
+                            <rect class="svg-fill" x="19.55" y="19.49" width="2.19" height="34.16"/>
+                            <rect class="svg-fill" x="22.28" y="19.49" width="2.18" height="34.16"/>
+                            <rect class="svg-fill" x="24.98" y="19.49" width="1.47" height="34.16"/>
+                            <rect class="svg-fill" x="26.94" y="19.49" width="0.86" height="34.16"/>
+                            <rect class="svg-fill" x="29.66" y="19.49" width="1.57" height="34.16"/>
+                            <rect class="svg-fill" x="31.78" y="19.49" width="2.18" height="34.16"/>
+                            <rect class="svg-fill" x="34.50" y="19.49" width="1.41" height="34.16"/>
+                            <rect class="svg-fill" x="37.18" y="19.49" width="0.84" height="34.16"/>
+                            <rect class="svg-fill" x="38.57" y="19.49" width="2.13" height="34.16"/>
+                            <rect class="svg-fill" x="41.85" y="19.49" width="0.84" height="34.16"/>
+                            <rect class="svg-fill" x="43.97" y="19.49" width="2.18" height="34.16"/>
+                            <rect class="svg-fill" x="47.32" y="19.49" width="1.55" height="34.16"/>
+                            <rect class="svg-fill" x="49.40" y="19.49" width="1.42" height="34.16"/>
+                            <rect class="svg-fill" x="52.11" y="19.49" width="0.83" height="34.16"/>
+                            <rect class="svg-fill" x="54.07" y="19.49" width="2.18" height="34.16"/>
+                            <rect class="svg-fill" x="56.77" y="19.49" width="0.83" height="34.16"/>
+                            <rect class="svg-fill" x="58.16" y="19.49" width="1.57" height="34.16"/>
+                            <rect class="svg-fill" x="61.59" y="19.49" width="0.85" height="34.16"/>
+                            <rect class="svg-fill" x="64.30" y="19.49" width="1.44" height="34.16"/>
+                            <rect class="svg-fill" x="67.01" y="19.49" width="0.85" height="34.16"/>
+                            <rect class="svg-fill" x="68.37" y="19.49" width="2.17" height="34.16"/>
+                            <rect class="svg-fill" x="71.72" y="19.49" width="1.52" height="34.16"/>
+                            <rect class="svg-fill" x="73.79" y="19.49" width="2.17" height="34.16"/>
+                            <rect class="svg-fill" x="76.51" y="19.49" width="0.85" height="34.16"/>
+                            <rect class="svg-fill" x="79.21" y="19.49" width="1.47" height="34.16"/>
+                            <rect class="svg-fill" x="81.18" y="19.49" width="1.60" height="34.16"/>
+                            <rect class="svg-fill" x="83.29" y="19.49" width="2.79" height="34.16"/>
+                            <rect class="svg-fill" x="86.62" y="19.49" width="1.56" height="34.16"/>
+                            <rect class="svg-fill" x="90.07" y="19.49" width="2.18" height="34.16"/>
+                            <rect class="svg-fill" x="92.77" y="19.49" width="0.85" height="34.16"/>
+                            <rect class="svg-fill" x="94.14" y="19.49" width="1.41" height="34.16"/>
+                        </g>
+                        <text x="53.5" y="53" text-anchor="middle" class="svg-fill svg-jp">プレアデス</text>
+                        <text x="94.2" y="53" text-anchor="end" class="svg-fill svg-en">PLEIADES</text>
+                        
+                        <!-- Decor Elements -->
+                        <g transform="matrix(0.408 0 0 0.408 6.65 28.35)">
+                             <rect class="svg-fill" x="10" y="50" width="10" height="0.6"/>
+                             <rect class="svg-fill" x="10" y="59.4" width="10" height="0.6"/>
+                             <rect class="svg-fill" x="-60" y="10" width="10" height="0.6" transform="rotate(-90)"/>
+                             <rect class="svg-fill" x="-60" y="19.4" width="10" height="0.6" transform="rotate(-90)"/>
+                             <rect class="svg-fill" x="-34.7" y="49.1" width="12.9" height="0.8" transform="rotate(-45)"/>
+                             <rect class="svg-fill" x="43.1" y="27.9" width="12.9" height="0.8" transform="rotate(45)"/>
+                        </g>
+                        <g transform="matrix(0.408 0 0 0.408 12.97 28.35)">
+                             <rect class="svg-fill" x="10" y="50" width="10" height="0.6"/>
+                             <rect class="svg-fill" x="10" y="59.4" width="10" height="0.6"/>
+                             <rect class="svg-fill" x="-60" y="10" width="10" height="0.6" transform="rotate(-90)"/>
+                             <rect class="svg-fill" x="-60" y="19.4" width="10" height="0.6" transform="rotate(-90)"/>
+                             <rect class="svg-fill" x="-34.7" y="49.1" width="12.9" height="0.8" transform="rotate(-45)"/>
+                             <rect class="svg-fill" x="43.1" y="27.9" width="12.9" height="0.8" transform="rotate(45)"/>
+                        </g>
+                        <g transform="matrix(1.121 0 0 1.121 0.39 -5.90)">
+                            <path class="svg-fill" d="m 20.64,48.74 1.42,0 v 0.21 h -1.00 l 1.59,1.60 -0.19,0.19 -1.60,-1.60 v 0.96 h -0.21 z"/>
+                            <path class="svg-fill" d="m 24.28,48.74 -1.42,0 v 0.21 h 1.00 l -1.59,1.60 0.19,0.19 1.60,-1.60 v 0.96 h 0.21 z"/>
+                            <path class="svg-fill" d="m 20.64,52.38 1.42,-0 v -0.21 h -1.00 l 1.59,-1.60 -0.19,-0.19 -1.60,1.60 v -0.96 h -0.21 z"/>
+                            <path class="svg-fill" d="m 24.27,52.38 -0,-1.43 h -0.21 v 1.00 l -1.59,-1.60 -0.19,0.19 1.60,1.60 H 22.90 V 52.38 Z"/>
+                        </g>
+                    </svg>
+                 </div>
+             </div>
+          </header>
+
+          <!-- CARD 3: Skills (Bottom Middle) -->
+          <section class="card card-skills">
+             <div class="flex justify-between items-center skills-header-row">
+                <h3 class="font-black text-uc tracking-tight skills-title">SKILLS</h3>
+                <svg class="icon skills-icon" viewBox="0 0 24 24">
+                   <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                   <path d="M9 9h6v6H9z"></path>
+                   <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"></path>
+                </svg>
+             </div>
+
+             <div class="flex flex-col flex-grow min-h-0 skills-container">
+                <!-- Skill Row 1 -->
+                <div class="flex items-center justify-between skill-item">
+                   <div class="flex flex-col">
+                      <span class="font-bold font-mono text-uc skill-name">Python Scripting</span>
+                      <span class="font-mono skill-desc">AUTOMATION // TOOLS</span>
+                   </div>
+                   <div class="flex gap-1">
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot"></div>
+                   </div>
+                </div>
+
+                <!-- Skill Row 2 -->
+                <div class="flex items-center justify-between skill-item">
+                   <div class="flex flex-col">
+                      <span class="font-bold font-mono text-uc skill-name">Reverse Engineering</span>
+                      <span class="font-mono skill-desc">BINARY // MALWARE</span>
+                   </div>
+                   <div class="flex gap-1">
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot faded"></div>
+                   </div>
+                </div>
+
+                 <!-- Skill Row 3 -->
+                <div class="flex items-center justify-between skill-item">
+                   <div class="flex flex-col">
+                      <span class="font-bold font-mono text-uc skill-name">Burp Suite</span>
+                      <span class="font-mono skill-desc">WEB SECURITY</span>
+                   </div>
+                   <div class="flex gap-1">
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot"></div>
+                      <div class="skill-dot faded"></div>
+                   </div>
+                </div>
+             </div>
+          </section>
+
+          <!-- CARD 4: Projects (Bottom Right) -->
+          <section class="card card-projects">
+
+             <div style="margin-bottom: 1rem;">
+                <h3 class="font-mono font-bold project-label">NEWEST_AND_LATEST</h3>
+                <h2 class="font-black text-uc leading-none project-heading">
+                   <span style="color: var(--c-beige);">PROJECTS</span>
+                </h2>
+             </div>
+
+             <div class="project-list">
+                <!-- Project 1 -->
+                <a href="#" class="project-item group">
+                   <div class="flex justify-between items-center">
+                      <span class="font-bold text-uc project-name">Multiparty Chat System with MDI-QKD</span>
+                      <svg class="icon icon-sm arrow-icon" viewBox="0 0 24 24">
+                         <line x1="7" y1="17" x2="17" y2="7"></line>
+                         <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                   </div>
+                   <div class="font-mono project-desc">PYTHON // QISKIT</div>
+                </a>
+                
+                 <!-- Project 2 -->
+                <a href="#" class="project-item group">
+                   <div class="flex justify-between items-center">
+                      <span class="font-bold text-uc project-name">Secure Chat Protocol</span>
+                      <svg class="icon icon-sm arrow-icon" viewBox="0 0 24 24">
+                         <line x1="7" y1="17" x2="17" y2="7"></line>
+                         <polyline points="7 7 17 7 17 17"></polyline>
+                      </svg>
+                   </div>
+                   <div class="font-mono project-desc">RUST // E2E ENCRYPTION</div>
+                </a>
+             </div>
+          </section>
+          
+        </div>
+
+        <!-- Section: Skills and Capabilities === -->
+        <section class="capabilities-section">
+            <div class="section-header">
+                <h2 class="section-title">CAPABILITIES</h2>
+                <span class="section-subtitle">// OPERATIONAL_ARSENAL</span>
+            </div>
+
+            <div class="cap-grid">
+                <!-- Offensive -->
+                <div class="cap-card">
+                    <div class="cap-head">OFFENSIVE</div>
+                    <ul class="cap-list">
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Penetration Testing</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.05</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-100"></div></div>
+                        </li>
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Reverse Engineering</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.04</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-80"></div></div>
+                        </li>
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Malware Analysis</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.03</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-60"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Defensive -->
+                <div class="cap-card">
+                    <div class="cap-head">DEFENSIVE</div>
+                    <ul class="cap-list">
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Threat Hunting</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.04</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-80"></div></div>
+                        </li>
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Incident Response</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.04</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-80"></div></div>
+                        </li>
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Cloud Security</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.03</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-60"></div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Development -->
+                <div class="cap-card">
+                    <div class="cap-head">ENGINEERING</div>
+                    <ul class="cap-list">
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Python / Scripting</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.05</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-100"></div></div>
+                        </li>
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Cryptography</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.05</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-100"></div></div>
+                        </li>
+                        <li class="cap-item">
+                            <div class="flex justify-between items-end">
+                                <span class="cap-name">Backend / API</span>
+                                <span class="font-mono" style="font-size: 0.7rem;">LVL.04</span>
+                            </div>
+                            <div class="cap-bar-container"><div class="cap-bar fill-80"></div></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Flashy Design with Random Info-->
+        <section class="poster-section">
+            <div class="poster-grid-lines"></div>
+
+            <!-- Left Column Side -> Typography -->
+            <div class="poster-col-left">
+                <h2 class="big-vert-text">DEV SEC OPS</h2>
+                <h2 class="big-vert-text" style="color: var(--c-beige);">SECURITY</h2>
+                <div class="poster-kanji">
+                    <span>システム</span>
+                    <span>アーキテクト</span>
+                </div>
+            </div>
+
+            <!-- Middle Column Side Halftone Image -->
+            <div class="poster-col-mid">
+                <div class="halftone-box">
+                    <img src="https://picsum.photos/seed/hacker/600/800" class="halftone-img" alt="Profile">
+                    <div class="halftone-overlay"></div>
+                    <div class="target-overlay">
+                        <div class="target-crosshair" style="transform: rotate(0deg);"></div>
+                        <div class="target-crosshair" style="transform: rotate(90deg);"></div>
+                        <div style="position: absolute; bottom: 10px; right: 10px; font-family: var(--font-mono); font-size: 0.6rem; color: var(--c-beige);">TARGET_LOCKED</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column Side -> random data here i guess -->
+            <div class="poster-col-right">
+                <div class="flex flex-col gap-4">
+                    <div class="info-block">
+                       <span class="info-label">CURRENT_RESIDENCY</span>
+                       <span class="info-data" style="color: #4ade80;">MALAYSIA</span>
+                    </div>
+                    <div class="info-block">
+                       <span class="info-label">INTEREST</span>
+                       <span class="info-data">Quantum Conference Key Agreement</span>
+                    </div>
+                    <div class="info-block">
+                       <span class="info-label">RECENT_WORKSHOP</span>
+                       <span class="info-data" style="color: var(--c-beige);">AES-GCM Exploitation</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <div style="font-family: var(--font-mono); font-size: 0.6rem; color: var(--c-slate); margin-bottom: 0.5rem;">
+                        // SYSTEM_WARNING: AUTHORIZED_PERSONNEL_ONLY
+                    </div>
+                    <div class="barcode-strip"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Projects -->
+        <section class="archives-section">
+            <div class="section-header">
+                <h2 class="section-title">PROJECTS</h2>
+                <span class="section-subtitle">// LATEST_PROJECTS</span>
+            </div>
+
+            <!-- Filtering Tag (TODO) -->
+            <div class="archive-filter">
+                 <button class="filter-btn active">ALL_RECORDS</button>
+                 <button class="filter-btn">OFFENSIVE</button>
+                 <button class="filter-btn">DEFENSIVE</button>
+                 <button class="filter-btn">TOOLS</button>
+                 <button class="filter-btn">RESEARCH</button>
+            </div>
+
+            <div class="archive-row">
+                <div class="archive-id">PRJ_01</div>
+                <div class="archive-main">
+                    <h3 class="archive-title">Secure Multiparty Chat System Using MDI-QKD</h3>
+                    <div class="archive-tags">
+                       <span class="archive-tag">Python</span>
+                       <span class="archive-tag">Quantum Key Distribution</span>
+                       <span class="archive-tag">MDI-QKD</span>
+                       <span class="archive-tag">Double Ratchets</span>
+                    </div>
+                </div>
+                <div class="archive-action">>> VIEW</div>
+                <div class="stamp">RESEARCH</div>
+            </div>
+
+            </div>
+         
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="brutalist-footer">
+            <div class="footer-info-row">
+                <div class="font-mono footer-meta-text">
+                    © 2026 SOLARIS0141<br>
+                    ALL RIGHTS RESERVED // SHUNSUKE TAN HEI
+                </div>
+                <div class="font-mono text-uc footer-meta-text text-right">
+                    LAT: 35.6762 N<br>
+                    LNG: 139.6503 E
+                </div>
+            </div>
+        </footer>
+
+    </div>
 </body>
 </html>
-
-
-

@@ -21,6 +21,13 @@ const blogPosts = [
     type: "Writeup"
   },
   {
+    title: "International Battle of Hackers 2024 Writeup",
+    date: "November 4 2024",
+    link: "blogs/04-11-2024-IBOH-2024-Writeup/04-11-2024-IBOH-2024-Writeup.html",
+    image: "blogs/04-11-2024-IBOH-2024-Writeup/Banner.jpg",
+    type: "Writeup"
+  },
+  {
     title: "WolvCTF 2024 Writeup",
     date: "March 23 2024",
     link: "blogs/23-03-2024-WOLVCTF-2024-Writeup/23-03-2024-WOLVCTF-2024-Writeup.html",

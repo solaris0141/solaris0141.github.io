@@ -1,0 +1,20 @@
+[2024-08-14 10:35:21] User1: What's the plan?
+[2024-08-14 10:36:02] User2: I don't know much, except that they're going to plant a bomb somewhere.
+[2024-08-14 10:36:15] User1: Who else knows about the plan?
+[2024-08-14 10:36:45] User2: Maybe User3 knows the most since he's closest to the leader.
+[2024-08-14 10:36:58] User1: Should we ask him? We can't afford any mistakes.
+[2024-08-14 10:37:10] User2: Yeah, we should. I think he’ll be online soon.
+[2024-08-14 10:39:21] User3: How did you guys even forget about the plan? It's going to happen soon.
+[2024-08-14 10:39:45] User3: The plan is to plant a bomb in the basement level 5's server room. It's meant to completely obliterate all information the organization has on us and delay their progress.
+[2024-08-14 10:40:01] User1: Basement level 5... that's pretty secure. Are we sure we can pull this off?
+[2024-08-14 10:40:15] User2: Oh yeah, that was the plan. How could I forget about it?
+[2024-08-14 10:40:30] User2: User3, do we have everything we need for this? No loose ends, right?
+[2024-08-14 10:40:50] User3: Everything's set. Just stick to the schedule and it'll go smoothly.
+[2024-08-14 10:41:05] User3: Why are we still using this broken chat system to communicate? I couldn't even delete our convo before.
+[2024-08-14 10:41:22] User1: If you can't even delete it, then no one can read it because all messages are encrypted properly, even the log files.
+[2024-08-14 10:41:40] User2: What? The system is broken due to a malware injection recently, you know.
+[2024-08-14 10:41:55] User3: It's alright, not like anyone is going to bother with this broken chat system.
+[2024-08-14 10:42:10] User1: IBOH24{7h1s_1s_t0t4lly_OUt_of_R@NG3:_0k4m0tO_s4yS_C4lm1y_86eef5528c8557609ff5bf0859c9554c}
+[2024-08-14 10:42:25] User1: See, I even typed out this system's password out in the open like this and I bet no one will even care about this.
+[2024-08-14 10:42:56] User3: Let’s just make sure we’re not leaving any traces. We can’t afford any risks.
+[2024-08-14 10:43:12] User3: I am going to corrupt the log file as well, now no one will be able to see our chat.
