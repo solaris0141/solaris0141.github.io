@@ -74,7 +74,7 @@ function renderPagination() {
 
     const infoDiv = document.createElement("div");
     infoDiv.className = "pagination-info";
-    infoDiv.innerText = `PAGE ${currentPage} OF ${totalPages} // TOTAL_LOGS: ${blogPosts.length}`;
+    infoDiv.innerText = `PAGE ${currentPage} OF ${totalPages} // TOTAL_POSTS: ${blogPosts.length}`;
     container.appendChild(infoDiv);
 
     const btnContainer = document.createElement("div");
