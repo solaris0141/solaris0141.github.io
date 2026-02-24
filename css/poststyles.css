@@ -38,6 +38,7 @@ body {
 .z-10 { z-index: 10; }
 .relative { position: relative; }
 .font-mono { font-family: var(--font-mono); }
+.pointer-events-none { pointer-events: none; }
 
 /* Header */
 .blog-header {
@@ -174,6 +175,21 @@ body {
   border-radius: 4px;
   font-size: 0.85em;
   color: var(--c-beige);
+}
+
+.article-content a {
+    color: var(--c-beige);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--c-slate);
+    padding-bottom: 1px;
+    transition: all 0.2s ease-in-out;
+}
+
+.article-content a:hover {
+    color: #4ade80; 
+    border-bottom: 1px solid #4ade80;
+    background-color: rgba(74, 222, 128, 0.1);
+    border-radius: 2px;
 }
 
 /* Code Blocks */

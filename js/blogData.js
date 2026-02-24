@@ -1,5 +1,12 @@
 const blogPosts = [
   {
+    title: "Secure Multiparty Chat System Utilizing MDI-QKD & Double Ratchets",
+    date: "August 30 2025",
+    link: "blogs/30-08-2025-FYP/30-08-2025-FYP.html",
+    image: "blogs/30-08-2025-FYP/Banner.png",
+    type: "Blog"
+  },
+  {
     title: "Experience at SINCON 2025",
     date: "May 26 2025",
     link: "blogs/26-05-2025-Experience-at-SINCON2025/26-05-2025-Experience-at-SINCON2025.html",

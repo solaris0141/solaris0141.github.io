@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Solaris0141 | Secure Multiparty Chat System Utilizing MDI-QKD & Double Ratchets</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="../../css/poststyles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;700;800&family=Oswald:wght@400;500;700&family=Noto+Sans+JP:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" id="MathJax-script" async></script>
+  </head>
+  <body>
+     <!-- SVG Noise Overlay -->
+    <div class="absolute inset-0 z-50 pointer-events-none" style="position: fixed; top:0; left:0; width:100%; height:100%; opacity: 0.06; mix-blend-mode: overlay;">
+      <svg width="100%" height="100%">
+        <filter id="noise">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noise)" />
+      </svg>
+    </div>
+
+    <div class="page-wrapper">
+        
+        <header class="blog-header">
+            <a href="../../index.html" class="header-title">
+                <span class="h-main">solaris0141</span>
+                <span class="h-div">//</span>
+                <span class="h-sub">Blogs & Writeups</span>
+            </a>
+            <a href="../../index.html" class="header-jp">ソラリス</a>
+        </header>
+
+        <main class="article-container">
+            <article class="article-main">
+                <h1 class="article-title">Secure Multiparty Chat System Utilizing MDI-QKD & Double Ratchets</h1>
+                
+                <div class="article-meta">
+                    <div class="meta-item"><span>DATE:</span><span style="color: var(--c-white);">2025-07-21</span></div>
+                    <div class="meta-item"><span>//</span></div>
+                    <div class="meta-item"><span>CATEGORY:</span><span style="color: #4ade80;">CRYPTOGRAPHY</span></div>
+                    <div class="meta-item"><span>//</span></div>
+                    <div class="meta-item"><span>TAGS:</span><span style="color: var(--c-white);">QUANTUM CRYPTOGRAPHY, E2E SECURITY, QISKIT</span></div>
+                </div>
+
+                <img src="Banner.png" class="article-hero-img full" alt="Project Banner">
+
+                <div class="mobile-toc">
+                    <span class="sidebar-title">NAVIGATION_INDEX</span>
+                    <nav class="toc-list">
+                        <a href="#design" class="toc-link">01 // SYSTEM ARCHITECTURE</a>
+                        <a href="#mdi-qkd" class="toc-link">02 // MDI-QKD PROTOCOL</a>
+                        <a href="#ratchet" class="toc-link">03 // DOUBLE RATCHET INTEGRATION</a>
+                        <a href="#impl" class="toc-link">04 // IMPLEMENTATION</a>
+                        <a href="#results" class="toc-link">05 // SECURITY & RESULTS</a>
+                    </nav>
+                </div>
+
+                <div class="article-content">
+                    <p>If there is one thing that keeps cryptographers awake at night, it's the looming threat of quantum computers breaking traditional algorithms like RSA and ECC. For my final year project, I knew I wanted to tackle this head-on. I ended up designing and simulating a multiparty secure messaging system that blends <strong>Measurement-Device-Independent Quantum Key Distribution (MDI-QKD)</strong> with the classical <strong>Double Ratchet Algorithm</strong>.</p>
+                    
+                    <p>The idea was simple but ambitious which is using the laws of quantum mechanics to establish an unconditionally secure initial key, and then use modern cryptographic ratcheting to guarantee perfect forward secrecy for the actual chat. Here is a deep dive into how I built it.</p>
+
+                    <p>The full project can be found on my <a href="https://github.com/solaris0141/Secure-Multiparty-Chat-System-Utilizing-MDIQKD-and-Double-Ratchets" target="_blank">Github Repository</a></p>
+
+                    <h2 id="design">01 // SYSTEM ARCHITECTURE</h2>
+                    <p>When designing a secure chat system, the golden rule is to <em>trust no one</em>. I built the architecture entirely around the assumption that the central infrastructure is either malicious or completely compromised. By using MDI-QKD, we literally don't even need to trust the quantum measurement device (the server). Even if the server is actively trying to intercept the keys, it physically cannot learn the key bits without the users' secret basis information.</p>
+
+                    <img src="System-Architecture.png" class="article-hero-img full" alt="System Architecture Diagram" style="margin: 2rem 0; border: 1px solid var(--c-slate);">
+
+                    <p>To make this work, I split the system into four main, heavily isolated components:</p>
+                    <ol>
+                        <li><strong>Client TUI Application:</strong> The frontend where users actually type their messages, built entirely for the terminal using Textual.</li>
+                        <li><strong>Client HSM (Simulated):</strong> A software-defined Hardware Security Module. I wanted to logically separate the UI from the cryptography, so this module handles all Qubit preparation, Key Sifting, and Ratchet math. The UI never touches raw keys.</li>
+                        <li><strong>API Server:</strong> An untrusted classical server (Flask/Socket.IO) that just acts as a dumb router for orchestration and message relaying.</li>
+                        <li><strong>Quantum Server:</strong> The untrusted node that simulates Bell State Measurements (BSM) using IBM's Qiskit.</li>
+                    </ol>
+
+                    <h2 id="mdi-qkd">02 // THE MDI-QKD PROTOCOL</h2>
+                    <p>I'll admit, diving deep into quantum mechanics for a computer science project was a massive leap out of my comfort zone, but the math behind it is fascinating. Unlike standard BB84 QKD, MDI-QKD eliminates detector side-channel attacks entirely by delegating the measurement phase.</p>
+
+                    <h3>A. Qubit Preparation</h3>
+                    <p>First, the client HSMs prepare their qubits in one of two bases: <strong>Z (Computational)</strong> or <strong>X (Hadamard)</strong>. In my simulation, this is done by generating QASM strings that are sent off to the Quantum Server (Assuming of the quantum channel).</p>
+                    <ul>
+                        <li><strong>Z-Basis:</strong> $|0\rangle$ and $|1\rangle$</li>
+                        <li><strong>X-Basis:</strong> $|+\rangle = \frac{|0\rangle + |1\rangle}{\sqrt{2}}$ and $|-\rangle = \frac{|0\rangle - |1\rangle}{\sqrt{2}}$</li>
+                    </ul>
+
+                    <h3>B. Bell State Measurement (BSM)</h3>
+                    <p>This was one of the coolest parts to simulate. The Quantum Server receives qubits from Alice and Bob, applies a CNOT gate followed by a Hadamard gate to entangle them, and then measures the state. This collapses the qubits into one of four Bell States:</p>
+                    <p>$$ |\Phi^\pm\rangle = \frac{|00\rangle \pm |11\rangle}{\sqrt{2}}, \quad |\Psi^\pm\rangle = \frac{|01\rangle \pm |10\rangle}{\sqrt{2}} $$</p>
+
+                    <img src="Circuit-Diagram.png" class="article-hero-img full" alt="Bell State Measurement Circuit Diagram" style="margin: 2rem 0; border: 1px solid var(--c-slate);">
+
+                    <p>The beauty of this is that the server announces the measurement outcome publicly, allowing clients to correlate their bits <em>without ever revealing the bits themselves</em>:</p>
+                    <div class="callout callout-quote">
+                        <div class="callout-content">
+                            <strong>BSM Implication Logic:</strong><br>
+                            If result is $\Phi^+$ or $\Phi^-$ in Z-basis -> <strong>Same Bits</strong><br>
+                            If result is $\Psi^+$ or $\Psi^-$ in Z-basis -> <strong>Opposite Bits</strong> (One client just flips their bit locally)<br>
+                            <em>(The logic cleverly inverts for the X-basis due to phase flip properties)</em>
+                        </div>
+                    </div>
+
+                    <h3>C. Post-Processing & Error Correction</h3>
+                    <p>Of course, in the real world, quantum channels are noisy. Photons get lost, and states degrade. I couldn't just assume perfect transmission, so I implemented <strong>LDPC (Low-Density Parity-Check)</strong> codes to handle error correction.</p>
+                    
+                    <p>One client (designated as the "flipper") calculates a syndrome ($H \cdot key$) and sends it over the classical channel. The receiving partner then uses a <strong>Belief Propagation + Localised Statistics Decoding (BP+LSD)</strong> algorithm to sift through the simulated channel noise and correct their bit string.</p>
+                    
+                    <p>Here is the ultimate security catch: if the calculated <strong>Quantum Bit Error Rate (QBER)</strong> exceeds <strong>11%</strong>, the system assumes Eve is listening, aborts the protocol, and dissolves the group immediately.</p>
+
+                    <div class="code-wrapper">
+                        <div class="code-header">
+                            <span class="code-lang">PYTHON // ERROR CORRECTION</span>
+                            <button class="copy-btn" onclick="copyCode(this)">COPY</button>
+                        </div>
+                        <pre><code class="language-python" data-src="error_correction.py"></code></pre>
+                    </div>
+
+                    <h2 id="ratchet">03 // DOUBLE RATCHET INTEGRATION</h2>
+                    <p>So, QKD gets us a mathematically unbreakable initial key. Awesome. But we can't just use that one key to encrypt an endless chat stream. If an attacker somehow compromises a device years later, we are cooked. That’s why I wired the quantum key directly into a <strong>Double Ratchet</strong> algorithm—the exact same protocol that powers Signal and WhatsApp.</p>
+
+                    <p>I utilized <strong>X25519</strong> for the asynchronous Diffie-Hellman handshakes and <strong>HKDF (SHA-512)</strong> to derive the continuous chain keys.</p>
+
+                    <img src="Double-Ratchets-Explained.png" class="article-hero-img full" alt="Double Ratchet Flow Diagram" style="margin: 2rem 0; border: 1px solid var(--c-slate);">
+
+                    <p>The flow looks like this:</p>
+                    <ol>
+                        <li><strong>Root Key:</strong> Derived directly from our hard-earned MDI-QKD shared secret.</li>
+                        <li><strong>Symmetric Ratchet:</strong> Advances with every single message sent or received, ensuring that old keys are destroyed (Forward Secrecy).</li>
+                        <li><strong>DH Ratchet:</strong> Periodically updates the Root Key via a public-key exchange. Even if a session key leaks, the attacker gets locked out as soon as a new DH exchange happens (Post-Compromise Security).</li>
+                    </ol>
+
+                    <h2 id="impl">04 // IMPLEMENTATION HIGHLIGHTS</h2>
+                    <p>I wanted the actual application to feel gritty and practical—like a tool you'd fire up in a high-stakes environment. I containerized the entire backend with Docker and focused heavily on the frontend experience.</p>
+                    
+                    <ul>
+                        <li><strong>Frontend:</strong> I used the <code>Textual</code> framework to build a hacker-style Terminal UI. It handles asynchronous events beautifully without blocking the input loop.</li>
+                        <li><strong>Quantum Simulation:</strong> To make the group chats feasible, I ran <code>Qiskit Aer</code> inside a Python multiprocessing pool on the Quantum Server. This parallelized the BSMs and drastically cut down the key-generation wait times for multi-user groups.</li>
+                        <li><strong>Crypto:</strong> Used <code>PyCryptodome</code> for AES-256-GCM authenticated encryption on the actual chat payloads.</li>
+                    </ul>
+
+                    <img src="Chat-Screen-TUI.png" class="article-hero-img full" alt="Chat Screen TUI Showcase" style="margin: 2rem 0; border: 1px solid var(--c-slate);">
+
+                    <h2 id="results">05 // SECURITY RESULTS & DISCUSSION</h2>
+                    <p>Theory is great, but does it actually withstand an attack? I spent weeks trying to break my own system to prove the implementation was solid.</p>
+
+                    <h3>Error Tolerance (QBER Analysis)</h3>
+                    <p>I injected random artificial noise into the simulated quantum channels. As expected, the LDPC error correction held up brilliantly up to about ~9% QBER. However, right as we hit that critical 11% threshold, the system correctly identified the channel as insecure, aborted the handshakes, and tore down the connection. The graph below maps out exactly how the protocol gracefully fails when the channel becomes too risky.</p>
+
+                    <img src="QBER-Graph.png" class="article-hero-img full" alt="QBER Graph" style="margin: 2rem 0; border: 1px solid var(--c-slate);">
+
+                    <h3>Security Validation</h3>
+                    <p>Finally, I fired up <strong>Wireshark</strong> and <strong>tcpdump</strong> to act as an active Man-in-the-Middle (MITM) adversary. Here is what happened:</p>
+                    <ul>
+                        <li><strong>Confidentiality:</strong> Capturing packets during the chat phase yielded absolutely nothing but JSON headers and hex-encoded ciphertext. The plaintext was mathematically locked away.</li>
+                        <li><strong>Tamper Resistance:</strong> I wrote a script to actively intercept and flip random bits in the ciphertext as it crossed the network. The result? The receiving client's HSM immediately threw an <code>InvalidTag</code> exception because the AES-GCM tag verification failed, and the packet was silently dropped.</li>
+                        <li><strong>Replay Protection:</strong> I tried re-injecting old, valid message packets back into the stream. Because the Double Ratchet state had already advanced and destroyed the old receiving keys, the replays were entirely useless and blocked by the HSM.</li>
+                    </ul>
+
+                    <img src="Public-Interceptable.png" class="article-hero-img full" alt="Public Interceptable Information via Wireshark" style="margin: 2rem 0; border: 1px solid var(--c-slate);">
+
+                    <div class="callout callout-flag">
+                        <div class="callout-title">FINAL THOUGHTS</div>
+                        <div class="callout-content">
+                            Looking back, this FYP definitely pushed me to my absolute limits as I blended quantum physics, advanced classical cryptography, and network engineering into a single working prototype. It proves that combining the trustless nature of MDI-QKD with the resilience of the Double Ratchet isn't just a theoretical concept but instead it's a highly practical, defense-in-depth architecture ready for whatever the post-quantum era throws at us.
+                        </div>
+                    </div>
+
+                </div>
+            </article>
+
+            <aside class="sidebar">
+                <div class="sidebar-box toc-box">
+                    <span class="sidebar-title">NAVIGATION_INDEX</span>
+                    <nav class="toc-list">
+                        <a href="#design" class="toc-link">01 // SYSTEM ARCHITECTURE</a>
+                        <a href="#mdi-qkd" class="toc-link">02 // MDI-QKD PROTOCOL</a>
+                        <a href="#ratchet" class="toc-link">03 // DOUBLE RATCHET INTEGRATION</a>
+                        <a href="#impl" class="toc-link">04 // IMPLEMENTATION</a>
+                        <a href="#results" class="toc-link">05 // SECURITY & RESULTS</a>
+                    </nav>
+                </div>
+
+                <div class="sidebar-box">
+                    <span class="sidebar-title">AUTHOR</span>
+                    <div class="id-container">
+                        <div class="id-logo">
+                            <span class="id-text">SOLARIS</span><span class="id-num">0141</span>
+                        </div>
+                        <div class="id-bottom">
+                            <span class="id-jp">ソラリス</span>
+                            <a href="https://github.com/solaris0141" target="_blank" class="id-social" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </main>
+
+        <footer class="simple-footer">
+            <div>© 2026 SOLARIS0141<br>ALL RIGHTS RESERVED</div>
+            <div>END_OF_POST</div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const MAX_HEIGHT = 400; 
+            const codeBlocks = document.querySelectorAll('code[data-src]');
+
+            codeBlocks.forEach(async (block) => {
+                const url = block.getAttribute('data-src');
+                const pre = block.parentElement; 
+                const wrapper = pre.parentElement;
+
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error(`Status: ${response.status}`);
+                    const text = await response.text();
+                    block.textContent = text;
+                    if (window.hljs) hljs.highlightElement(block);
+
+                    setTimeout(() => {
+                        if (pre.scrollHeight > MAX_HEIGHT) {
+                            wrapper.classList.add('collapsed');
+                            const btn = document.createElement('button');
+                            btn.className = 'code-expand-btn';
+                            btn.innerText = 'EXPAND_SOURCE //';
+                            btn.addEventListener('click', () => {
+                                wrapper.classList.remove('collapsed');
+                                btn.remove();
+                            });
+                            wrapper.appendChild(btn);
+                        }
+                    }, 50);
+                } catch (error) {
+                    block.textContent = `// Error loading code from: ${url}\n// Please ensure the file exists in the directory.`;
+                    console.error("Fetch error:", error);
+                }
+            });
+        });
+
+        function copyCode(btn) {
+            const wrapper = btn.closest('.code-wrapper');
+            const pre = wrapper.querySelector('pre');
+            const code = pre.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = "COPIED!";
+                btn.style.borderColor = "#4ade80";
+                btn.style.color = "#4ade80";
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.borderColor = "";
+                    btn.style.color = "";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+  </body>
+</html>
